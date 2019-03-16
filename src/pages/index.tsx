@@ -5,6 +5,8 @@ import Login, { EsqueciSenha } from "./Login";
 
 import { Home } from "./Home";
 import { DadosPessoais } from "./DadosPessoais";
+import { TrocarSenha } from "./TrocarSenha";
+import { Relacionamento } from "./Relacionamento";
 
 export {
     PageClean, Page,
@@ -12,5 +14,7 @@ export {
     Login, EsqueciSenha,
 
     Home,
-    DadosPessoais
+    DadosPessoais,
+    TrocarSenha,
+    Relacionamento
 }

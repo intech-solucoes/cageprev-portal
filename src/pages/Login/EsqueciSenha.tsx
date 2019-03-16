@@ -48,8 +48,8 @@ export default class EsqueciSenha extends React.Component<Props, State> {
             }
 
             if(form.valido) {
-                var { data: result } = await UsuarioService.PrimeiroAcesso(this.state.cpf, this.state.dataNascimento);
-                window.alert(result);
+                var resultado = await UsuarioService.PrimeiroAcesso(this.state.cpf, this.state.dataNascimento);
+                window.alert(resultado);
                 this.props.history.push('/');
             }
         
@@ -57,7 +57,7 @@ export default class EsqueciSenha extends React.Component<Props, State> {
             if(err.response)
                 this.alert.current.adicionarErro(err.response.data);
             else
-                console.error(err);
+                this.alert.current.adicionarErro(err);
         }
     }
 
@@ -73,6 +73,7 @@ export default class EsqueciSenha extends React.Component<Props, State> {
                 </h5>
 
                 <Form ref={this.form}>
+                
                     <CampoTexto contexto={this} nome={"cpf"} max={11} valor={this.state.cpf} 
                                 placeholder="CPF (somente números)" />
 

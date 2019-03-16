@@ -5,7 +5,9 @@ import {
     Login, EsqueciSenha,
 
     Home,
-    DadosPessoais
+    DadosPessoais,
+    TrocarSenha,
+    Relacionamento
 } from "./pages";
 
 function GetRotas() {
@@ -15,16 +17,14 @@ function GetRotas() {
             caminho: "/login",
             componente: (routeProps: RouteProps) => <Login {...routeProps} />,
             mostrarMenu: false,
-            exact: false,
-            id: "login"
+            exact: false
         },
         {
             titulo: "Esqueci Minha Senha",
             caminho: "/esqueciSenha",
             componente: (routeProps: RouteProps) => <EsqueciSenha {...routeProps} />,
             mostrarMenu: false,
-            exact: false,
-            id: "esqueciSenha"
+            exact: false
         },
         {
             titulo: "Home",
@@ -32,14 +32,27 @@ function GetRotas() {
             caminho: "/",
             componente: (routeProps: RouteProps) => <Home {...routeProps} />,
             mostrarMenu: true,
-            exact: true,
-            id: "home"
+            exact: true
         },
         {
             titulo: "Seus Dados",
             icone: "fas fa-user",
             caminho: "/dados",
             componente: (routeProps: RouteProps) => <DadosPessoais {...routeProps} />,
+            mostrarMenu: true
+        },
+        {
+            titulo: "Trocar senha",
+            icone: "fas fa-lock",
+            caminho: "/trocarSenha",
+            componente: (routeProps: RouteProps) => <TrocarSenha {...routeProps} />,
+            mostrarMenu: true
+        },
+        {
+            titulo: "Relacionamento",
+            icone: "fas fa-envelope",
+            caminho: "/relacionamento",
+            componente: (routeProps: RouteProps) => <Relacionamento {...routeProps} />,
             mostrarMenu: true,
             id: "dadosPessoais"
         }

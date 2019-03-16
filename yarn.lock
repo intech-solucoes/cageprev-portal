@@ -875,19 +875,7 @@
 "@intechprev/componentes-web@file:../_lib/componentes-web":
   version "1.0.0"
   dependencies:
-    "@intechprev/react-lib" "file:../../Users/rony-/AppData/Local/Yarn/Cache/v4/npm-@intechprev-componentes-web-1.0.0-d13b8163-a046-4efa-939f-0472dbf82b4b-1552416499970/node_modules/@intechprev/react-lib"
-    "@types/classnames" "^2.2.7"
-    "@types/react" "^16.8.7"
-    "@types/react-input-mask" "^2.0.1"
-    axios "^0.18.0"
-    classnames "^2.2.6"
-    react "^16.8.4"
-    react-input-mask "^2.0.4"
-
-"@intechprev/componentes-web@file:..\\_lib\\componentes-web\\":
-  version "1.0.0"
-  dependencies:
-    "@intechprev/react-lib" "file:../../Users/rony-/AppData/Local/Yarn/Cache/v4/npm-@intechprev-componentes-web-1.0.0-4278cb7f-f4d0-4d6c-88e1-2580e4207052-1552416500510/node_modules/@intechprev/react-lib"
+    "@intechprev/react-lib" "file:../../Users/rony-/AppData/Local/Yarn/Cache/v4/npm-@intechprev-componentes-web-1.0.0-7bf267fa-b617-4e89-ac6d-be93dfe90ac8-1552596151181/node_modules/@intechprev/react-lib"
     "@types/classnames" "^2.2.7"
     "@types/react" "^16.8.7"
     "@types/react-input-mask" "^2.0.1"
@@ -899,7 +887,7 @@
 "@intechprev/ps-web-service@file:../ps-web-service":
   version "0.0.2"
   dependencies:
-    "@intechprev/service" "file:../../Users/rony-/AppData/Local/Yarn/Cache/v4/npm-@intechprev-ps-web-service-0.0.2-cb7000c6-413e-46a1-bc0b-ba47c3088630-1552416499985/node_modules/@intechprev/_lib/service"
+    "@intechprev/service" "file:../../Users/rony-/AppData/Local/Yarn/Cache/v4/npm-@intechprev-ps-web-service-0.0.2-f172f224-79fd-4c2c-8595-4b01893eb22f-1552596151768/node_modules/@intechprev/_lib/service"
 
 "@intechprev/react-lib@file:../_lib/react-lib":
   version "1.0.0"

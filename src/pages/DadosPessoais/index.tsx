@@ -76,31 +76,36 @@ export class DadosPessoais extends React.Component<Props, State> {
                     </Col>
 
                     <Col>
-                        <Box titulo={"Dados Funcionais"}>
+                        {this.state.dados.NO_EMPRESA && 
+                            <Box titulo={"Dados Funcionais"}>
 
-                            <div className="form-row">
-                                <CampoEstatico titulo="Empresa" valor={this.state.dados.NO_EMPRESA} />
-                            </div>
+                                <div className="form-row">
+                                    <CampoEstatico titulo="Empresa" valor={this.state.dados.NO_EMPRESA} />
+                                </div>
 
-                            <div className="form-row">
-                                <CampoEstatico titulo="Data de Admissão" valor={this.state.dados.DT_ADMISSAO} />
-                                <CampoEstatico titulo="Matrícula" valor={this.state.dados.NR_REGISTRO} />
-                            </div>
+                                <div className="form-row">
+                                    <CampoEstatico titulo="Data de Admissão" valor={this.state.dados.DT_ADMISSAO} />
+                                    <CampoEstatico titulo="Matrícula" valor={this.state.dados.NR_REGISTRO} />
+                                </div>
 
-                        </Box>
-                        <Box titulo={"Dados Bancários"}>
+                            </Box>
+                        }
+                        
+                        {this.state.dados.CD_BANCO && 
+                            <Box titulo={"Dados Bancários"}>
 
-                            <div className="form-row">
-                                <CampoEstatico titulo="Banco" valor={this.state.dados.CD_BANCO + "-" + this.state.dados.NO_BANCO} />
-                            </div>
+                                <div className="form-row">
+                                    <CampoEstatico titulo="Banco" valor={this.state.dados.CD_BANCO + "-" + this.state.dados.NO_BANCO} />
+                                </div>
 
-                            <div className="form-row">
-                                <CampoEstatico titulo="Agência" valor={this.state.dados.CD_AGENCIA + "-" + this.state.dados.DV_AGENCIA} />
-                                <CampoEstatico titulo="Conta" valor={this.state.dados.NR_CC + "-" + this.state.dados.DV_CC} />
-                            </div>
+                                <div className="form-row">
+                                    <CampoEstatico titulo="Agência" valor={this.state.dados.CD_AGENCIA + "-" + this.state.dados.DV_AGENCIA} />
+                                    <CampoEstatico titulo="Conta" valor={this.state.dados.NR_CC + "-" + this.state.dados.DV_CC} />
+                                </div>
 
-                        </Box>
-
+                            </Box>
+                        }
+                        
                         <Box titulo={"Endereço"}>
                             <div className="form-row">
                                 <CampoEstatico titulo="Endereço" valor={this.state.dados.DS_ENDERECO} />

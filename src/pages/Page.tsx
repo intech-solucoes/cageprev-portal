@@ -103,7 +103,7 @@ export default class Page extends React.Component<Props, State> {
                                 Rotas.map((rota, index) => {
                                     if (rota.mostrarMenu) {
                                         return (
-                                            <li key={index} id={rota.id}>
+                                            <li key={index}>
                                                 <Link to={rota.caminho}>
                                                     <i className={rota.icone}></i>
                                                     {rota.titulo}
