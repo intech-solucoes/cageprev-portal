@@ -7,7 +7,8 @@ import {
     Home,
     DadosPessoais,
     TrocarSenha,
-    Relacionamento
+    Relacionamento,
+    Beneficios
 } from "./pages";
 
 function GetRotas() {
@@ -40,6 +41,15 @@ function GetRotas() {
             caminho: "/dados",
             componente: (routeProps: RouteProps) => <DadosPessoais {...routeProps} />,
             mostrarMenu: true
+        },
+        {
+            titulo: "Seus Benefícios",
+            icone: "fas fa-money-bill-alt",
+            caminho: "/beneficios",
+            componente: (routeProps: RouteProps) => <Beneficios {...routeProps} />,
+            mostrarMenu: true,
+            exact: true,
+            id: "contracheque"
         },
         {
             titulo: "Trocar senha",

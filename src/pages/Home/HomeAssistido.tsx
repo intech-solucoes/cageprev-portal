@@ -37,7 +37,7 @@ export class HomeAssistido extends React.Component<Props, State> {
 
         var plano = await PlanoVinculadoService.Buscar();
         var processo = await ProcessoBeneficioService.BuscarPorPlano(plano.SQ_PLANO_PREVIDENCIAL);
-        var ficha = await FichaFinancAssistidoService.BuscarPorProcesso(processo.SQ_PROCESSO);
+        var ficha = await FichaFinancAssistidoService.BuscarUltimaPorProcesso(processo.SQ_PROCESSO);
 
         await this.setState({ plano, processo, ficha });
 

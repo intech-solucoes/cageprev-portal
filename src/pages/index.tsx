@@ -7,6 +7,7 @@ import { Home } from "./Home";
 import { DadosPessoais } from "./DadosPessoais";
 import { TrocarSenha } from "./TrocarSenha";
 import { Relacionamento } from "./Relacionamento";
+import { Beneficios } from "./Beneficios";
 
 export {
     PageClean, Page,
@@ -16,5 +17,6 @@ export {
     Home,
     DadosPessoais,
     TrocarSenha,
-    Relacionamento
+    Relacionamento,
+    Beneficios
 }
