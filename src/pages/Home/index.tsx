@@ -4,6 +4,7 @@ import { PlanoVinculadoService } from "@intechprev/ps-web-service";
 
 import { HomeAtivo } from "./HomeAtivo";
 import { HomeAssistido } from "./HomeAssistido";
+import { Page } from "..";
 
 interface Props { }
 
@@ -33,6 +34,6 @@ export class Home extends React.Component<Props, State> {
         else if(this.state.plano.SQ_SIT_PLANO === 3)
             return <HomeAssistido {...this.props} />
         else
-            return "";
+            return <Page {...this.props} />;
     }
 }
