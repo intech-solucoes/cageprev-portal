@@ -1,6 +1,6 @@
 {
     "name": "portal-cageprev",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "private": true,
     "homepage": ".",
     "browserslist": [
@@ -10,7 +10,7 @@
         "not op_mini all"
     ],
     "dependencies": {
-        "@intechprev/componentes-web": "file:../_lib/componentes-web/",
+        "@intechprev/componentes-web": "file:../_lib/componentes-web",
         "@intechprev/ps-web-service": "file:../ps-web-service",
         "@intechprev/react-lib": "file:../_lib/react-lib",
         "@intechprev/service": "file:../_lib/service",
@@ -31,6 +31,7 @@
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "styles:build": "sass ./src/styles/main.scss:./public/css/main.css"
+        "styles:build": "sass ./src/styles/main.scss:./public/css/main.css",
+        "styles:watch": "sass --watch ./src/styles/main.scss:./public/css/main.css"
     }
 }

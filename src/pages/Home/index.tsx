@@ -1,49 +1,38 @@
 import React from "react";
-import { Page } from "../";
-import { Row, Col, Box } from "@intechprev/componentes-web";
-import { HomeCard } from "./HomeCard";
 
-interface Props {
+import { PlanoVinculadoService } from "@intechprev/ps-web-service";
 
+import { HomeAtivo } from "./HomeAtivo";
+import { HomeAssistido } from "./HomeAssistido";
+
+interface Props { }
+
+interface State {
+    plano: any;
 }
 
-export class Home extends React.Component<Props> {
-
-    private page = React.createRef<Page>();
+export class Home extends React.Component<Props, State> {
 
     constructor(props: Props) {
         super(props);
 
         this.state = {
-            dados: {
-                dadosPessoais: {}
-            }
+            plano: {}
         }
     }
 
-    carregarDadosPessoais = async () => {
-        // var result = await DadosPessoaisService.Buscar();
-        // await this.setState({ dados: result.data });
-    }
+    async componentDidMount() {
+        var plano = await PlanoVinculadoService.Buscar();
 
-    componentDidMount = async () => {
-        await this.carregarDadosPessoais();
+        await this.setState({ plano });
     }
 
     render() {
-        return (
-            <Page {...this.props} ref={this.page}>
-
-                <Row>
-                    <Col>
-                        <HomeCard titulo={"Plano"} conteudo={"BENEFICIO DEFINIDO"} />
-                    </Col>
-                    <Col>
-                        <HomeCard titulo={"Situação"} conteudo={"ATIVO"} />
-                    </Col>
-                </Row>
-
-            </Page>
-        );
+        if(this.state.plano.SQ_SIT_PLANO === 1)
+            return <HomeAtivo {...this.props} />
+        else if(this.state.plano.SQ_SIT_PLANO === 3)
+            return <HomeAssistido {...this.props} />
+        else
+            return "";
     }
 }

@@ -155,9 +155,11 @@ export default class Page extends React.Component<Props, State> {
                             }
                         </Row>
 
-                        <div className="wrapper-content">
-                            {this.props.children}
-                        </div>
+                        {!this.state.loading && 
+                            <div className="wrapper-content">
+                                    {this.props.children}
+                            </div>
+                        }
                     </div>
                 </div>
             </div>
