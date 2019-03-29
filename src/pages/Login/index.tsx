@@ -71,7 +71,7 @@ export default class Login extends React.Component<Props, State> {
 
                 <h5>
                     <b>Área de Acesso Restrito</b><br />
-                    <small>Para informações, entre em contato com a <a href="http://www.franweb.com.br/contact.html">Cageprev</a></small><br />
+                    <small>Para informações, entre em contato com a <a href="http://www.cageprev.com/?page_id=13072">Cageprev</a></small><br />
                     <br />
                 </h5>
                 

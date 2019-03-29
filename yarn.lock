@@ -875,7 +875,7 @@
 "@intechprev/componentes-web@file:../_lib/componentes-web":
   version "1.0.0"
   dependencies:
-    "@intechprev/react-lib" "file:../../Users/rony-/AppData/Local/Yarn/Cache/v4/npm-@intechprev-componentes-web-1.0.0-7bf267fa-b617-4e89-ac6d-be93dfe90ac8-1552596151181/node_modules/@intechprev/react-lib"
+    "@intechprev/react-lib" "file:../../Users/rony-/AppData/Local/Yarn/Cache/v4/npm-@intechprev-componentes-web-1.0.0-e9146b85-ba16-482b-9156-41158a2e66f1-1553604812111/node_modules/@intechprev/react-lib"
     "@types/classnames" "^2.2.7"
     "@types/react" "^16.8.7"
     "@types/react-input-mask" "^2.0.1"
@@ -887,7 +887,7 @@
 "@intechprev/ps-web-service@file:../ps-web-service":
   version "0.0.2"
   dependencies:
-    "@intechprev/service" "file:../../Users/rony-/AppData/Local/Yarn/Cache/v4/npm-@intechprev-ps-web-service-0.0.2-f172f224-79fd-4c2c-8595-4b01893eb22f-1552596151768/node_modules/@intechprev/_lib/service"
+    "@intechprev/service" "file:../../Users/rony-/AppData/Local/Yarn/Cache/v4/npm-@intechprev-ps-web-service-0.0.2-31b69f3f-8f11-47a9-b5d8-752b85ba1213-1553604812763/node_modules/@intechprev/_lib/service"
 
 "@intechprev/react-lib@file:../_lib/react-lib":
   version "1.0.0"
@@ -949,6 +949,11 @@
   version "23.3.13"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-23.3.13.tgz#c81484b6f4ca007bb09887ed15ecb3286d58f928"
   integrity sha512-ePl4l+7dLLmCucIwgQHAgjiepY++qcI6nb8eAwGNkB6OxmTe3Z9rQU3rSpomqu42PCCnlThZbOoxsf+qylJsLA==
+
+"@types/lodash@^4.14.123":
+  version "4.14.123"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.123.tgz#39be5d211478c8dd3bdae98ee75bb7efe4abfe4d"
+  integrity sha512-pQvPkc4Nltyx7G1Ww45OjVqUsJP4UsZm+GWJpigXgkikZqJgRm4c48g027o6tdgubWHwFRF15iFd+Y4Pmqv6+Q==
 
 "@types/node@10.12.18":
   version "10.12.18"

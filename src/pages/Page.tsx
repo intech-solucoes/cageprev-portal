@@ -6,6 +6,7 @@ import { DadosPessoaisService, UsuarioService } from "@intechprev/ps-web-service
 import { Row, Col } from "@intechprev/componentes-web";
 
 import Rotas from "../Rotas";
+import { async } from "q";
 
 const config = require("../config.json");
 
@@ -60,6 +61,10 @@ export default class Page extends React.Component<Props, State> {
 
     }
 
+    isLoading = async() => {
+        return this.state.loading;
+    }
+
     loading = async (valor: boolean) => {
         await this.setState({
             loading: valor
@@ -79,7 +84,7 @@ export default class Page extends React.Component<Props, State> {
             var titulo;
 
             for (var i = 0; i < Rotas.length; i++) {
-                if (rota === Rotas[i].caminho) {
+                if (rota === Rotas[i].caminho || rota === Rotas[i].caminhoLink || rota.includes(Rotas[i].caminhoLink)) {
                     titulo = <h2 id="titulo">{Rotas[i].titulo}</h2>;
                 }
             }

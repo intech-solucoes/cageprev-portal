@@ -1,8 +1,9 @@
 import React from "react";
+import * as _ from "lodash";
 
 import { PlanoVinculadoService, ProcessoBeneficioService, FichaFinancAssistidoService } from "@intechprev/ps-web-service";
 
-import { Row, Col, Box, CampoEstatico, TipoCampoEstatico } from "@intechprev/componentes-web";
+import { Row, Col, Box, CampoEstatico, TipoCampoEstatico, Alert, TipoAlerta } from "@intechprev/componentes-web";
 import { HomeCard } from "./HomeCard";
 import { Page } from "../";
 
@@ -47,76 +48,89 @@ export class HomeAssistido extends React.Component<Props, State> {
     render() {
         return (
             <Page {...this.props} ref={this.page}>
-                <Row>
-                    <Col>
-                        <HomeCard titulo={"Plano"}>
-                            {this.state.plano.DS_PLANO_PREVIDENCIAL}
-                        </HomeCard>
-                    </Col>
-                    <Col>
-                        <HomeCard titulo={"Situação"}>
-                            {this.state.plano.DS_SIT_PLANO}
-                        </HomeCard>
-                    </Col>
-                </Row>
-
-                <Row className={"mt-4"}>
-                    <Col>
-                        <HomeCard titulo={"Benefício"}>
-                            {this.state.processo.DS_ESPECIE}
-                        </HomeCard>
-                    </Col>
-                    <Col>
-                        <HomeCard titulo={"Processo"}>
-                            {this.state.processo.NR_PROCESSO}/{this.state.processo.NR_ANO_PROCESSO}
-                        </HomeCard>
-                    </Col>
-                </Row>
-
-                <Row className={"mt-4"}>
-                    <Col>
-                        <HomeCard titulo={"Data Concessão"}>
-                            {this.state.processo.DT_CONCESSAO}
-                        </HomeCard>
-                    </Col>
-                    <Col>
-                        <HomeCard titulo={"Situação"}>
-                            {this.state.processo.DS_MOT_SITUACAO}
-                        </HomeCard>
-                    </Col>
-                </Row>
-
                 {this.page.current &&
-                    <Row className={"mt-4"}>
-                        <Col>
-                            <Box titulo={"Última Folha "} label={"competência " + this.state.ficha[0].DT_COMPETENCIA}>
-                                
-                                <table className={"table table-striped table-sm"}>
-                                    <thead>
-                                        <tr>
-                                            <th>Rubrica</th>
-                                            <th className={"text-right"}>Tipo</th>
-                                            <th className={"text-right"}>Valor</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {this.state.ficha.map((item, index) => {
-                                            return (
-                                                <tr key={index}>
-                                                    <td>{item.DS_RUBRICA}</td>
-                                                    <td className={"text-right"}>{item.DS_LANCAMENTO}</td>
-                                                    <td className={"text-right"}>
-                                                        <CampoEstatico valor={item.VL_CALCULO} tipo={TipoCampoEstatico.dinheiro} />
-                                                    </td>
-                                                </tr>
-                                            )
-                                        })}
-                                    </tbody>
-                                </table>
+                    <div>
+                        <Row>
+                            <Col>
+                                <HomeCard titulo={"Plano"}>
+                                    {this.state.plano.DS_PLANO_PREVIDENCIAL}
+                                </HomeCard>
+                            </Col>
+                            <Col>
+                                <HomeCard titulo={"Situação"}>
+                                    {this.state.plano.DS_SIT_PLANO}
+                                </HomeCard>
+                            </Col>
+                        </Row>
 
-                            </Box>
-                        </Col>
-                    </Row>
+                        <Row className={"mt-4"}>
+                            <Col>
+                                <HomeCard titulo={"Benefício"}>
+                                    {this.state.processo.DS_ESPECIE}
+                                </HomeCard>
+                            </Col>
+                            <Col>
+                                <HomeCard titulo={"Processo"}>
+                                    {this.state.processo.NR_PROCESSO}/{this.state.processo.NR_ANO_PROCESSO}
+                                </HomeCard>
+                            </Col>
+                        </Row>
+
+                        <Row className={"mt-4"}>
+                            <Col>
+                                <HomeCard titulo={"Data Concessão"}>
+                                    {this.state.processo.DT_CONCESSAO}
+                                </HomeCard>
+                            </Col>
+                            <Col>
+                                <HomeCard titulo={"Situação"}>
+                                    {this.state.processo.DS_MOT_SITUACAO}
+                                </HomeCard>
+                            </Col>
+                        </Row>
+
+                        <Row className={"mt-4"}>
+                            <Col>
+                                {this.state.ficha.length > 0 &&
+                                    <Box titulo={"Última Folha "} label={"competência " + this.state.ficha[0].DT_COMPETENCIA}>
+
+                                        <h3 className={"text-center text-primary mb-5"}>
+                                            Valor Líquido: <b className={"text-secondary"}><CampoEstatico valor={_.sumBy(this.state.ficha, 'VL_CALCULO')} tipo={TipoCampoEstatico.dinheiro} /></b>
+                                        </h3>
+                                        
+                                        <table className={"table table-striped table-sm"}>
+                                            <thead>
+                                                <tr>
+                                                    <th>Rubrica</th>
+                                                    <th className={"text-right"}>Tipo</th>
+                                                    <th className={"text-right"}>Valor</th>
+                                                </tr>
+                                            </thead>
+                                            
+                                            <tbody>
+                                                {this.state.ficha.map((item, index) => {
+                                                    return (
+                                                        <tr key={index}>
+                                                            <td>{item.DS_RUBRICA}</td>
+                                                            <td className={"text-right"}>{item.DS_LANCAMENTO}</td>
+                                                            <td className={"text-right"}>
+                                                                <CampoEstatico valor={item.VL_CALCULO} tipo={TipoCampoEstatico.dinheiro} />
+                                                            </td>
+                                                        </tr>
+                                                    )
+                                                })}
+                                            </tbody>
+                                        </table>
+
+                                    </Box>
+                                }
+
+                                {this.state.ficha.length == 0 &&
+                                    <Alert tipo={TipoAlerta.danger} mensagem="Não foi possível buscar sua última folha" />
+                                }
+                            </Col>
+                        </Row>
+                    </div>
                 }
             </Page>
         );

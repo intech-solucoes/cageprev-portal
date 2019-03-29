@@ -10,6 +10,8 @@ import {
     Relacionamento,
     Beneficios
 } from "./pages";
+import { Contracheque } from './pages/Beneficios/Contracheque';
+import { Plano } from './pages/Plano';
 
 function GetRotas() {
     const rotas = [
@@ -43,6 +45,13 @@ function GetRotas() {
             mostrarMenu: true
         },
         {
+            titulo: "Seu Plano",
+            icone: "fas fa-list",
+            caminho: "/plano",
+            componente: (routeProps: RouteProps) => <Plano {...routeProps} />,
+            mostrarMenu: true
+        },
+        {
             titulo: "Seus Benefícios",
             icone: "fas fa-money-bill-alt",
             caminho: "/beneficios",
@@ -50,6 +59,15 @@ function GetRotas() {
             mostrarMenu: true,
             exact: true,
             id: "contracheque"
+        },
+        {
+            titulo: "Contracheque",
+            icone: "fas fa-closed-captioning",
+            caminho: "/contracheque/:sqProcesso/:dtReferencia",
+            caminhoLink: "/contracheque/",
+            componente: (routeProps: RouteProps) => <Contracheque {...routeProps} />,
+            mostrarMenu: false, 
+            exact: true
         },
         {
             titulo: "Trocar senha",

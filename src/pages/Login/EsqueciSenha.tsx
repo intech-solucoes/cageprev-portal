@@ -4,6 +4,7 @@ import { PageClean } from "..";
 
 import { UsuarioService } from "@intechprev/ps-web-service";
 import { Alert, TipoAlerta, Form, CampoTexto, Button, TipoBotao } from "@intechprev/componentes-web";
+import { Link } from "react-router-dom";
 
 interface Props {
     history?: any;
@@ -82,6 +83,7 @@ export default class EsqueciSenha extends React.Component<Props, State> {
 
                     <Button titulo={"Enviar Nova Senha"} tipo={TipoBotao.primary} block submit usaLoading
                             onClick={this.enviarSenha} />
+                    <Link className="btn btn-light btn-block" to="/login">Voltar para a página de Login</Link>
                     <br />
                     <Alert ref={this.alert} padraoFormulario tipo={TipoAlerta.danger} tamanho={"12"} />
 

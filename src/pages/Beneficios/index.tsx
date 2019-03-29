@@ -4,6 +4,7 @@ import { PlanoVinculadoService, ProcessoBeneficioService, FichaFinancAssistidoSe
 
 import { Row, Col, Box, CampoEstatico, TipoCampoEstatico } from "@intechprev/componentes-web";
 import { Page } from "../";
+import { Link } from "react-router-dom";
 
 interface Props { }
 
@@ -28,10 +29,6 @@ export class Beneficios extends React.Component<Props, State> {
     }
 
     async componentDidMount() {
-        await this.carregarPlano();
-    }
-
-    async carregarPlano() {
         await this.page.current.loading(true);
 
         var plano = await PlanoVinculadoService.Buscar();
@@ -96,7 +93,7 @@ export class Beneficios extends React.Component<Props, State> {
                                                             <CampoEstatico valor={valor.VAL_LIQUIDO} tipo={TipoCampoEstatico.dinheiro} />
                                                         </td>
                                                         <td>
-                                                            {/* <Link className={"btn btn-primary btn-sm"} to={`/contracheque/${plano.CD_PLANO}/${valor.DT_REFERENCIA.replace(new RegExp('/', 'g'), '.')}` }>Detalhar</Link> */}
+                                                            <Link className={"btn btn-primary btn-sm"} to={`/contracheque/${valor.SQ_PROCESSO}/${valor.DT_REFERENCIA.replace(new RegExp('/', 'g'), '.')}` }>Detalhar</Link>
                                                         </td>
                                                     </tr>
                                                 );
