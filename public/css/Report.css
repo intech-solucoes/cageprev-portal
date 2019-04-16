@@ -39,7 +39,7 @@ html, body, #root {
 
 .report-content.preview .page {
     margin: 0 auto;
-    width: 21cm;
+    width: 25cm;
     padding: 10mm;
     margin-bottom: 0.5cm;
     box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
@@ -47,10 +47,6 @@ html, body, #root {
 
 .page p {
     line-height: normal;
-}
-
-*, ::after, ::before {
-    box-sizing: content-box !important;
 }
 
 .page > header,
