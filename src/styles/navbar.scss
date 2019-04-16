@@ -53,3 +53,15 @@
         }
     }
 }
+
+.btn-menu-close {
+    display: none;
+    position: fixed;
+    left: 250px;
+    z-index: 9999;
+
+
+    &.nav-open {
+        display: block;
+    }
+}

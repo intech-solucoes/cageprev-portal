@@ -1,5 +1,6 @@
 import React from "react";
 import { RelacionamentoService } from "@intechprev/ps-web-service";
+import { DadosPessoaisService } from "@intechprev/ps-web-service";
 
 import { Page } from "..";
 
@@ -31,8 +32,13 @@ export class Relacionamento extends React.Component<Props, State> {
         }
     }
 
-    componentDidMount() {
-        this.page.current.loading(false);
+    componentDidMount = async () => {
+        await this.page.current.loading(true);
+
+        var dados = await DadosPessoaisService.Buscar();
+        await this.setState({ email: dados.NO_EMAIL });
+
+        await this.page.current.loading(false);
     }
 
     validar = async () => {

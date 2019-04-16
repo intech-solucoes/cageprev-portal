@@ -77,11 +77,11 @@ export default class Login extends React.Component<Props, State> {
                 
                 <form>
                 <div className="form-group">
-                    <input name="cpf" id="cpf" placeholder="CPF (somente números)" className="form-control" value={this.state.cpf} onChange={(e) => handleFieldChange(this, e)} />
+                    <input name="cpf" id="cpf" placeholder="CPF (somente números)" type={"number"} className="form-control" maxLength={11} value={this.state.cpf} onChange={(e) => handleFieldChange(this, e)} />
                 </div>
 
                 <div className="form-group">
-                    <input name="senha" id="senha" placeholder="Senha" type="password" className="form-control" value={this.state.senha} onChange={(e) => handleFieldChange(this, e)} />
+                    <input name="senha" id="senha" placeholder="Senha" type="password" className="form-control" maxLength={64} value={this.state.senha} onChange={(e) => handleFieldChange(this, e)} />
                 </div>
 
                 <div className="form-group">

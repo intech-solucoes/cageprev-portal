@@ -75,7 +75,7 @@ export default class EsqueciSenha extends React.Component<Props, State> {
 
                 <Form ref={this.form}>
                 
-                    <CampoTexto contexto={this} nome={"cpf"} max={11} valor={this.state.cpf} 
+                    <CampoTexto contexto={this} nome={"cpf"} tipo={"number"} max={11} valor={this.state.cpf} 
                                 placeholder="CPF (somente números)" />
 
                     <CampoTexto contexto={this} nome={"dataNascimento"} valor={this.state.dataNascimento} 

@@ -9676,6 +9676,10 @@ label {
 }
 
 .form-control {
+  height: initial;
+}
+
+.form-control {
   background-color: #FFF;
   background-image: none;
   border: 1px solid #e5e6e7;
@@ -9748,6 +9752,16 @@ label {
   margin-right: 8px;
 }
 
+.btn-menu-close {
+  display: none;
+  position: fixed;
+  left: 250px;
+  z-index: 9999;
+}
+.btn-menu-close.nav-open {
+  display: block;
+}
+
 .page-wrapper {
   min-height: 711px;
 }
@@ -9761,6 +9775,7 @@ label {
 .page-wrapper .page-heading h2 {
   font-size: 18px;
   color: #FFF;
+  margin-top: 4px;
 }
 .page-wrapper .page-heading .user-icon {
   font-size: 10pt;
@@ -9801,10 +9816,6 @@ label {
   .navbar-default.nav-open {
     display: block;
     width: 250px;
-  }
-
-  .page-wrapper.nav-open {
-    margin-left: 250px;
   }
 }
 .wrapper-content {

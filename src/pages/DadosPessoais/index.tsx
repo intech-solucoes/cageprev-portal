@@ -25,15 +25,13 @@ export class DadosPessoais extends React.Component<Props, State> {
         };
     }
 
-    async componentWillMount() {
-        //await this.page.current.loading(true);
+    componentDidMount = async () => {
+        await this.page.current.loading(true);
 
         var dados = await DadosPessoaisService.Buscar();
-        console.log(dados);
-
         await this.setState({ dados });
 
-        //await this.page.current.loading(false);
+        await this.page.current.loading(false);
     }
 
     render() {

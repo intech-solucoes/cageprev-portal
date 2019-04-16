@@ -8,9 +8,8 @@ import {
     DadosPessoais,
     TrocarSenha,
     Relacionamento,
-    Beneficios
+    Beneficios, Contracheque, RelatorioContracheque
 } from "./pages";
-import { Contracheque } from './pages/Beneficios/Contracheque';
 import { Plano } from './pages/Plano';
 
 function GetRotas() {

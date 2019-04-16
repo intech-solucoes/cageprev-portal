@@ -179,9 +179,7 @@ export class Plano extends React.Component<Props, State> {
 
                                 </Box>
                             </Col>
-                        </Row>
 
-                        <Row>
                             <Col>
                                 <Box titulo={"Simulador de Portabilidade"} label={`Posição de ${this.state.dataPosicao}`}>
                                     

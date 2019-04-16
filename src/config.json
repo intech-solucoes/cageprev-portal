@@ -1,3 +1,4 @@
 {
-    "apiUrl": "http://localhost/CageprevAPI/api"
+  "apiUrl": "http://10.10.170.11/CageprevAPI/api",
+  "dir": "Z:\\CageprevPortal"
 }

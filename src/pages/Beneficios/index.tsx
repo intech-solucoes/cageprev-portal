@@ -6,6 +6,14 @@ import { Row, Col, Box, CampoEstatico, TipoCampoEstatico } from "@intechprev/com
 import { Page } from "../";
 import { Link } from "react-router-dom";
 
+import { Contracheque } from "./Contracheque";
+import { RelatorioContracheque } from "./RelatorioContracheque";
+
+export {
+    Contracheque,
+    RelatorioContracheque
+}
+
 interface Props { }
 
 interface State {
@@ -28,7 +36,7 @@ export class Beneficios extends React.Component<Props, State> {
         }
     }
 
-    async componentDidMount() {
+    componentDidMount = async () => {
         await this.page.current.loading(true);
 
         var plano = await PlanoVinculadoService.Buscar();

@@ -6,7 +6,6 @@ import { DadosPessoaisService, UsuarioService } from "@intechprev/ps-web-service
 import { Row, Col } from "@intechprev/componentes-web";
 
 import Rotas from "../Rotas";
-import { async } from "q";
 
 const config = require("../config.json");
 
@@ -18,6 +17,7 @@ interface State {
     nomeUsuario: string;
     loading: boolean;
     admin: boolean;
+    menuAberto: boolean;
 }
 
 export default class Page extends React.Component<Props, State> {
@@ -28,7 +28,8 @@ export default class Page extends React.Component<Props, State> {
         this.state = {
             nomeUsuario: "",
             loading: false,
-            admin: false
+            admin: false,
+            menuAberto: false
         }
     }
 
@@ -49,13 +50,13 @@ export default class Page extends React.Component<Props, State> {
             } else {
                 localStorage.removeItem("token");
                 localStorage.removeItem("token-admin");
-                this.props.history.push("login");
+                this.props.history.push("/login");
             }
         } catch (err) {
             if (err.message.indexOf("401") > -1) {
                 localStorage.removeItem("token");
                 localStorage.removeItem("token-admin");
-                this.props.history.push("login");
+                this.props.history.push("/login");
             }
         }
 
@@ -99,7 +100,7 @@ export default class Page extends React.Component<Props, State> {
                 </div>
                 
                 <div className="wrapper">
-                    <nav className="navbar-default nav-open">
+                    <nav className={"navbar-default " + (this.state.menuAberto ? "nav-open" : "")}>
                         <ul>
                             <li className="navbar-header">
                                 <img src="imagens/logo.png" alt="logo" />
@@ -128,18 +129,24 @@ export default class Page extends React.Component<Props, State> {
                         </ul>
                     </nav>
 
-                    <div className="page-wrapper nav-open">
+                    <button className={"btn btn-primary btn-menu-close " + (this.state.menuAberto ? "nav-open" : "")} onClick={() => this.setState({ menuAberto: false })}>
+                        <i className="fas fa-times fa-3x"></i>
+                    </button>
+                    
+                    <div className={"page-wrapper " + (this.state.menuAberto ? "nav-open" : "")}>
                         <Row className="page-heading">
-                            <Col>
-                                <button className="btn btn-primary btn-menu">
+                            <Col tamanho={"1"} className={"btn-menu"}>
+                                <button className="btn btn-primary" onClick={() => this.setState({ menuAberto: !this.state.menuAberto })}>
                                     <i className="fa fa-list"></i>
                                 </button>
+                            </Col>
 
+                            <Col>
                                 <Title />
                             </Col>
 
                             {config.cliente !== "preves" &&
-                                <Col tamanho={"sm-4"} className={"text-right user-icon"}>
+                                <Col tamanho={"4"} className={"text-right user-icon"}>
                                     <Row>
                                         <Col className={"nome-usuario"}>
                                             {this.state.nomeUsuario}
