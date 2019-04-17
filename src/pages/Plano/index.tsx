@@ -9,7 +9,7 @@ interface Props { }
 
 interface State {
     plano: any;
-    saldos: Array<any>;
+    saldos: any;
     dataInicial: string;
     dataFinal: string;
     dataPosicao: string;
@@ -24,7 +24,9 @@ export class Plano extends React.Component<Props, State> {
 
         this.state = {
             plano: null,
-            saldos: [],
+            saldos: {
+                lista: []
+            },
             dataInicial: "",
             dataFinal: "",
             dataPosicao: ""
@@ -79,7 +81,7 @@ export class Plano extends React.Component<Props, State> {
                                 <Box titulo={"Saldos Acumulados"} label={`Posição de ${this.state.dataPosicao}`}>
                                         
                                     <h3 className={"text-center text-primary mb-5"}>
-                                        Parabéns! Você já acumulou <b className={"text-secondary"}>R$ <CampoEstatico valor={this.state.saldos[2].VL_ATUALIZADO} tipo={TipoCampoEstatico.dinheiro} /></b>
+                                        Parabéns! Você já acumulou <b className={"text-secondary"}>R$ <CampoEstatico valor={this.state.saldos.lista[2].VL_ATUALIZADO} tipo={TipoCampoEstatico.dinheiro} /></b>
                                     </h3>
                                     
                                     <table className={"table table-striped table-sm"}>
@@ -90,7 +92,7 @@ export class Plano extends React.Component<Props, State> {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {this.state.saldos.map((saldo, index) => {
+                                            {this.state.saldos.lista.map((saldo: any, index: number) => {
                                                 // Define o tipo de linha (td ou th) baseado no index. Se for o ultimo, será o total, e será th
                                                 var Td = (props: any) => <td className={props.className}>{props.children}</td>;
 
@@ -118,17 +120,14 @@ export class Plano extends React.Component<Props, State> {
                                 <Box titulo={"Extrato de Contribuições"}>
                                     <Form ref={this.form}>
                                         <Row>
-                                            <Col tamanho={"lg-4"}>
-                                                <CampoTexto contexto={this} nome={"dataInicial"} valor={this.state.dataInicial} tamanhoLabel={"lg-4"}
+                                            <Col tamanho={"lg-3"}>
+                                                <CampoTexto contexto={this} nome={"dataInicial"} valor={this.state.dataInicial} tamanhoLabel={"lg-5"}
                                                             label={"Data Inicial"} mascara={"99/99/9999"} />
                                             </Col>
-                                            <Col tamanho={"lg-4"}>
-                                                <CampoTexto contexto={this} nome={"dataFinal"} valor={this.state.dataFinal} tamanhoLabel={"lg-4"}
+                                            <Col tamanho={"lg-3"}>
+                                                <CampoTexto contexto={this} nome={"dataFinal"} valor={this.state.dataFinal} tamanhoLabel={"lg-5"}
                                                             label={"Data Final"} mascara={"99/99/9999"} />
                                             </Col>
-                                        </Row>
-
-                                        <Row>
                                             <Col>
                                                 <Button titulo={"Gerar"} tipo={TipoBotao.primary} submit onClick={this.gerarExtrato} />
                                             </Col>
@@ -159,19 +158,19 @@ export class Plano extends React.Component<Props, State> {
                                             <tr>
                                                 <td>VALOR BRUTO</td>
                                                 <td className={"text-right"}>
-                                                    <CampoEstatico valor={this.state.saldos[0].VL_ATUALIZADO} tipo={TipoCampoEstatico.dinheiro} />
+                                                    <CampoEstatico valor={this.state.saldos.bruto} tipo={TipoCampoEstatico.dinheiro} />
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>DESCONTO DE IRRF</td>
                                                 <td className={"text-right"}>
-                                                    <CampoEstatico valor={123.45} tipo={TipoCampoEstatico.dinheiro} />
+                                                    <CampoEstatico valor={this.state.saldos.IRRF} tipo={TipoCampoEstatico.dinheiro} />
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th>VALOR LÍQUIDO</th>
                                                 <th className={"text-right"}>
-                                                    <CampoEstatico valor={123.45} tipo={TipoCampoEstatico.dinheiro} />
+                                                    <CampoEstatico valor={this.state.saldos.liquido} tipo={TipoCampoEstatico.dinheiro} />
                                                 </th>
                                             </tr>
                                         </tbody>
@@ -200,7 +199,7 @@ export class Plano extends React.Component<Props, State> {
                                             <tr>
                                                 <th>VALOR A SER PORTADO</th>
                                                 <th className={"text-right"}>
-                                                    <CampoEstatico valor={this.state.saldos[2].VL_ATUALIZADO} tipo={TipoCampoEstatico.dinheiro} />
+                                                    <CampoEstatico valor={this.state.saldos.lista[2].VL_ATUALIZADO} tipo={TipoCampoEstatico.dinheiro} />
                                                 </th>
                                             </tr>
                                         </tbody>

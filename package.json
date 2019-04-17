@@ -1,6 +1,6 @@
 {
     "name": "portal-cageprev",
-    "version": "0.0.8",
+    "version": "0.0.9",
     "private": true,
     "homepage": ".",
     "browserslist": [
@@ -10,7 +10,7 @@
         "not op_mini all"
     ],
     "dependencies": {
-        "@intechprev/componentes-web": "^1.0.7",
+        "@intechprev/componentes-web": "^1.0.8",
         "@intechprev/ps-web-service": "file:../ps-web-service",
         "@intechprev/react-lib": "^1.0.3",
         "@intechprev/service": "^2.0.0",

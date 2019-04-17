@@ -95,10 +95,6 @@ export default class Page extends React.Component<Props, State> {
 
         return (
             <div>
-                <div style={{opacity: 0.5}} className="loader" hidden={!this.state.loading}>
-                    <img style={{width: 300, height: 200}} src="./imagens/loading.gif" alt="loading" />
-                </div>
-                
                 <div className="wrapper">
                     <nav className={"navbar-default " + (this.state.menuAberto ? "nav-open" : "")}>
                         <ul>
@@ -167,11 +163,15 @@ export default class Page extends React.Component<Props, State> {
                             }
                         </Row>
 
-                        {!this.state.loading && 
-                            <div className="wrapper-content">
-                                    {this.props.children}
-                            </div>
-                        }
+                        <div className="wrapper-content">
+                            {!this.state.loading && this.props.children}
+                            
+                            {this.state.loading && 
+                                <div className="loader">
+                                    <img src="./imagens/loading.gif" alt="loading" />
+                                </div>
+                            }
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1132,10 +1132,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@intechprev/componentes-web@^1.0.7":
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/@intechprev/componentes-web/-/componentes-web-1.0.7.tgz#188336095c4f65bb67b7b5a5570a22bce9ba90a4"
-  integrity sha512-LgdxVTzSr6O+CBoyR/xhXg3Ce1lNin0+gFUg+rkp4+qNemfAdcL93SJFDvf2eNM8urdP5JFHLzLvasn2tQia0A==
+"@intechprev/componentes-web@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@intechprev/componentes-web/-/componentes-web-1.0.8.tgz#3058e686cf38ee0bc53bcd0a0b313827efa8fd2f"
+  integrity sha512-vgat6j+hgyakF/po5PN/jkZvHOD6MqSNoHta9qwhE04+QSEdrZnWKQmJRBBZ7I8Nk7Nay4y9EbpHqZvQGm8nuA==
   dependencies:
     "@intechprev/react-lib" "^1.0.3"
     "@types/classnames" "^2.2.7"
@@ -1149,7 +1149,7 @@
 "@intechprev/ps-web-service@file:../ps-web-service":
   version "0.0.2"
   dependencies:
-    "@intechprev/service" "file:../../Users/rony-/AppData/Local/Yarn/Cache/v4/npm-@intechprev-ps-web-service-0.0.2-cf8b7ad1-d41f-4023-8b2a-1ffe3ca50de4-1555423899746/node_modules/@intechprev/_lib/service"
+    "@intechprev/service" "file:../../Users/rony-/AppData/Local/Yarn/Cache/v4/npm-@intechprev-ps-web-service-0.0.2-ba10d40a-5e94-4bed-ac5f-921036578a73-1555440054311/node_modules/@intechprev/_lib/service"
 
 "@intechprev/react-lib@^1.0.3":
   version "1.0.3"
