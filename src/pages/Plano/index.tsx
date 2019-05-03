@@ -47,7 +47,7 @@ export class Plano extends React.Component<Props, State> {
             saldos,
             dataInicial: datasExtrato.DataInicial,
             dataFinal: datasExtrato.DataFinal,
-            dataPosicao: indice.DT_INIC_VALIDADE
+            dataPosicao: indice.DT_INIC_VALIDADE.substring(3)
          });
 
         this.page.current.loading(false);
@@ -81,7 +81,7 @@ export class Plano extends React.Component<Props, State> {
                                 <Box titulo={"Saldos Acumulados"} label={`Posição de ${this.state.dataPosicao}`}>
                                         
                                     <h3 className={"text-center text-primary mb-5"}>
-                                        Parabéns! Você já acumulou <b className={"text-secondary"}>R$ <CampoEstatico valor={this.state.saldos.lista[2].VL_ATUALIZADO} tipo={TipoCampoEstatico.dinheiro} /></b>
+                                        Parabéns! Você já acumulou <b className={"text-secondary"}><CampoEstatico valor={this.state.saldos.lista[2].VL_ATUALIZADO} tipo={TipoCampoEstatico.dinheiro} /></b>
                                     </h3>
                                     
                                     <table className={"table table-striped table-sm"}>
@@ -96,7 +96,7 @@ export class Plano extends React.Component<Props, State> {
                                                 // Define o tipo de linha (td ou th) baseado no index. Se for o ultimo, será o total, e será th
                                                 var Td = (props: any) => <td className={props.className}>{props.children}</td>;
 
-                                                if(index == this.state.saldos.length - 1)
+                                                if(index == this.state.saldos.lista.length - 1)
                                                     Td = (props: any) => <th className={props.className}>{props.children}</th>;
 
                                                 return (

@@ -8,7 +8,8 @@ import {
     DadosPessoais,
     TrocarSenha,
     Relacionamento,
-    Beneficios, Contracheque, RelatorioContracheque
+    Beneficios, Contracheque, RelatorioContracheque, 
+    Emprestimos, EmprestimoDetalhe
 } from "./pages";
 import { Plano } from './pages/Plano';
 
@@ -29,6 +30,7 @@ function GetRotas() {
             exact: false
         },
         {
+            id: "home",
             titulo: "Home",
             icone: "fas fa-home",
             caminho: "/",
@@ -37,6 +39,7 @@ function GetRotas() {
             exact: true
         },
         {
+            id: "dados",
             titulo: "Seus Dados",
             icone: "fas fa-user",
             caminho: "/dados",
@@ -44,6 +47,7 @@ function GetRotas() {
             mostrarMenu: true
         },
         {
+            id: "plano",
             titulo: "Seu Plano",
             icone: "fas fa-list",
             caminho: "/plano",
@@ -51,13 +55,13 @@ function GetRotas() {
             mostrarMenu: true
         },
         {
+            id: "beneficios",
             titulo: "Seus Benefícios",
             icone: "fas fa-money-bill-alt",
             caminho: "/beneficios",
             componente: (routeProps: RouteProps) => <Beneficios {...routeProps} />,
             mostrarMenu: true,
-            exact: true,
-            id: "contracheque"
+            exact: true
         },
         {
             titulo: "Contracheque",
@@ -69,6 +73,25 @@ function GetRotas() {
             exact: true
         },
         {
+            id: "emprestimos",
+            titulo: "Empréstimos",
+            icone: "fas fa-closed-captioning",
+            caminho: "/emprestimos",
+            componente: (routeProps: RouteProps) => <Emprestimos {...routeProps} />,
+            mostrarMenu: true, 
+            exact: true
+        },
+        {
+            titulo: "Detalhes do Empréstimo",
+            icone: "fas fa-closed-captioning",
+            caminho: "/emprestimos/:sqContrato",
+            caminhoLink: "/emprestimos/",
+            componente: (routeProps: RouteProps) => <EmprestimoDetalhe {...routeProps} />,
+            mostrarMenu: false, 
+            exact: true
+        },
+        {
+            id: "trocarSenha",
             titulo: "Trocar senha",
             icone: "fas fa-lock",
             caminho: "/trocarSenha",
@@ -76,12 +99,12 @@ function GetRotas() {
             mostrarMenu: true
         },
         {
+            id: "relacionamento",
             titulo: "Relacionamento",
             icone: "fas fa-envelope",
             caminho: "/relacionamento",
             componente: (routeProps: RouteProps) => <Relacionamento {...routeProps} />,
-            mostrarMenu: true,
-            id: "dadosPessoais"
+            mostrarMenu: true
         }
     ];
 

@@ -114,12 +114,12 @@ export class RelatorioContracheque extends Component<Props, State> {
                             <tr>
                                 <th>Código</th>
                                 <th>Descrição</th>
-                                <th>Data</th>
-                                <th>Parcela</th>
-                                <th>Prazo</th>
-                                <th>Base</th>
-                                <th>Proventos</th>
-                                <th>Descontos</th>
+                                <th className={"text-center"}>Data</th>
+                                <th className={"text-center"}>Parcela</th>
+                                <th className={"text-center"}>Prazo</th>
+                                <th className={"text-right"}>Base</th>
+                                <th className={"text-right"}>Proventos</th>
+                                <th className={"text-right"}>Descontos</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -129,15 +129,15 @@ export class RelatorioContracheque extends Component<Props, State> {
                                         <tr key={index}>
                                             <td>{rubrica.CD_RUBRICA}</td>
                                             <td>{rubrica.DS_RUBRICA}</td>
-                                            <td>{rubrica.DT_REFERENCIA.substring(3)}</td>
-                                            <td>{rubrica.NR_PARCELA}/{rubrica.QT_PARCELA}</td>
-                                            <td>{rubrica.QT_PRAZO}</td>
-                                            <td>{rubrica.VL_BASE_CALCULO.toLocaleString('pt-br', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                                            <td>
-                                                {rubrica.VAL_PROVENTO && rubrica.VAL_PROVENTO.toLocaleString('pt-br', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                                            <td className={"text-center"}>{rubrica.DT_REFERENCIA.substring(3)}</td>
+                                            <td className={"text-center"}>{rubrica.NR_PARCELA}/{rubrica.QT_PARCELA}</td>
+                                            <td className={"text-center"}>{rubrica.QT_PRAZO}</td>
+                                            <td className={"text-right"}>{rubrica.VL_BASE_CALCULO.toLocaleString('pt-br', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                                            <td className={"text-right"}>
+                                                {typeof(rubrica.VAL_PROVENTO) !== 'undefined' && rubrica.VAL_PROVENTO.toLocaleString('pt-br', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                                             </td>
-                                            <td className={"text-danger"}>
-                                                {rubrica.VAL_DESCONTO && rubrica.VAL_DESCONTO.toLocaleString('pt-br', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                                            <td className={"text-right text-danger"}>
+                                                {typeof(rubrica.VAL_DESCONTO) !== 'undefined' && rubrica.VAL_DESCONTO.toLocaleString('pt-br', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                                             </td>
                                         </tr>
                                     );

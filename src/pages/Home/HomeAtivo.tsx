@@ -12,7 +12,7 @@ interface State {
     plano: any;
     salario: any;
     ultimaContribuicao: Array<any>;
-    saldos: Array<any>;
+    saldos: any;
     dataAposentadoria: any;
 }
 
@@ -29,7 +29,9 @@ export class HomeAtivo extends React.Component<Props, State> {
                 VL_BASE_FUNDACAO: 0
             },
             ultimaContribuicao: [],
-            saldos: [],
+            saldos: {
+                lista: []
+            },
             dataAposentadoria: null
         }
     }
@@ -100,7 +102,7 @@ export class HomeAtivo extends React.Component<Props, State> {
                                 <Box titulo={"Saldos Acumulados"}>
                                         
                                     <h3 className={"text-center text-primary mb-5"}>
-                                        Parabéns! Você já acumulou <b className={"text-secondary"}><CampoEstatico valor={this.state.saldos[2].VL_ATUALIZADO} tipo={TipoCampoEstatico.dinheiro} /></b>
+                                        Parabéns! Você já acumulou <b className={"text-secondary"}><CampoEstatico valor={this.state.saldos.lista[2].VL_ATUALIZADO} tipo={TipoCampoEstatico.dinheiro} /></b>
                                     </h3>
                                     
                                     <table className={"table table-striped table-sm"}>
@@ -113,7 +115,7 @@ export class HomeAtivo extends React.Component<Props, State> {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {this.state.saldos.map((saldo, index) => {
+                                            {this.state.saldos.lista.map((saldo: any, index: number) => {
                                                 // Define o tipo de linha (td ou th) baseado no index. Se for o ultimo, será o total, e será th
                                                 var Td = (props: any) => <td className={props.className}>{props.children}</td>;
 

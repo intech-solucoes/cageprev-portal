@@ -1,10 +1,9 @@
 import React from "react";
 
-import { PlanoVinculadoService, ProcessoBeneficioService, FichaFinancAssistidoService } from "@intechprev/ps-web-service";
+import { FichaFinancAssistidoService } from "@intechprev/ps-web-service";
 
 import { Row, Col, Box, CampoEstatico, TipoCampoEstatico, Button, TipoBotao } from "@intechprev/componentes-web";
 import { Page } from "../";
-import { Link } from "react-router-dom";
 import { RelatorioContracheque } from ".";
 
 interface Props {
@@ -52,7 +51,7 @@ export class Contracheque extends React.Component<Props, State> {
 
     render() {
         return (
-            <Page {...this.props} ref={this.page}>
+            <Page {...this.props} ref={this.page} titulo={"Contracheque " + this.state.dtReferencia.replace(".", "/").replace(".", "/")}>
                 {this.page.current &&
                     <div>
                         <Row>

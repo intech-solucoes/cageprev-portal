@@ -10,7 +10,7 @@ export class HomeCard extends React.Component<Props> {
 
     render() {
         return (
-            <div className="card">
+            <div className="card mb-3">
                 <div className={"card-title"}>
                     {this.props.titulo}
 

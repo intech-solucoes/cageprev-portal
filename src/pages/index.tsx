@@ -8,6 +8,7 @@ import { DadosPessoais } from "./DadosPessoais";
 import { TrocarSenha } from "./TrocarSenha";
 import { Relacionamento } from "./Relacionamento";
 import { Beneficios, Contracheque, RelatorioContracheque } from "./Beneficios";
+import { Emprestimos, EmprestimoDetalhe } from "./Emprestimos";
 
 export {
     PageClean, Page,
@@ -18,5 +19,6 @@ export {
     DadosPessoais,
     TrocarSenha,
     Relacionamento,
-    Beneficios, Contracheque, RelatorioContracheque
+    Beneficios, Contracheque, RelatorioContracheque,
+    Emprestimos, EmprestimoDetalhe
 }

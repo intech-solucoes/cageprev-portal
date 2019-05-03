@@ -38,7 +38,7 @@ export class DadosPessoais extends React.Component<Props, State> {
         return (
             <Page {...this.props} ref={this.page}>
                 <Row>
-                    <Col>
+                    <Col tamanho={"12"} className={"col-lg-6"}>
                         <Box titulo={"Dados Pessoais"}>
                             <div className="form-row">
                                 <CampoEstatico titulo="Nome" valor={this.state.dados.NO_PESSOA} />

@@ -41,8 +41,6 @@ const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
     filesystem.write("./src/config.json", env[selectedEnv]);
 
-    filesystem.copy("./node_modules/@ronymmoura/react-reports/dist/Report.css", "./public/css/Report.css", { overwrite: true });
-
     console.log(env[selectedEnv]);
 
     console.log("Realizando build...");

@@ -7,16 +7,16 @@ import { Row, Col } from "@intechprev/componentes-web";
 
 import Rotas from "../Rotas";
 
-const config = require("../config.json");
-
 interface Props {
     history?: any;
+    titulo?: string;
 }
 
 interface State {
     nomeUsuario: string;
     loading: boolean;
     admin: boolean;
+    menu: Array<string>;
     menuAberto: boolean;
 }
 
@@ -29,7 +29,8 @@ export default class Page extends React.Component<Props, State> {
             nomeUsuario: "",
             loading: false,
             admin: false,
-            menuAberto: false
+            menuAberto: false,
+            menu: []
         }
     }
 
@@ -38,8 +39,8 @@ export default class Page extends React.Component<Props, State> {
             var token = await localStorage.getItem("token");
 
             if (token) {
-                var { data: dados } = await DadosPessoaisService.Buscar();
-                var nomeUsuario = dados.Funcionario.NOME_ENTID;
+                var dados = await DadosPessoaisService.Buscar();
+                var nomeUsuario = dados.NO_PESSOA;
 
                 //var { data: admin } = await UsuarioService.VerificarAdmin();
 
@@ -57,9 +58,20 @@ export default class Page extends React.Component<Props, State> {
                 localStorage.removeItem("token");
                 localStorage.removeItem("token-admin");
                 this.props.history.push("/login");
+            } else {
+                alert("Ops! Ocorreu um erro ao processar sua requisição.");
+                console.error(err);
             }
         }
 
+    }
+
+    componentDidMount = async () => {
+        var menu = await UsuarioService.Menu();
+
+        await this.setState({
+            menu
+        });
     }
 
     isLoading = async() => {
@@ -80,17 +92,21 @@ export default class Page extends React.Component<Props, State> {
 
     render() {
         var Title = () => {
-            var rota = this.props.history.location.pathname;
+            if(this.props.titulo) {
+                return <h2 id="titulo">{this.props.titulo}</h2>;
+            } else {
+                var rota = this.props.history.location.pathname;
 
-            var titulo;
+                var titulo;
 
-            for (var i = 0; i < Rotas.length; i++) {
-                if (rota === Rotas[i].caminho || rota === Rotas[i].caminhoLink || rota.includes(Rotas[i].caminhoLink)) {
-                    titulo = <h2 id="titulo">{Rotas[i].titulo}</h2>;
+                for (var i = 0; i < Rotas.length; i++) {
+                    if (rota === Rotas[i].caminho || rota === Rotas[i].caminhoLink || rota.includes(Rotas[i].caminhoLink)) {
+                        titulo = <h2 id="titulo">{Rotas[i].titulo}</h2>;
+                    }
                 }
-            }
 
-            return titulo;
+                return titulo;
+            }
         };
 
         return (
@@ -103,7 +119,7 @@ export default class Page extends React.Component<Props, State> {
                             </li>
                             {
                                 Rotas.map((rota, index) => {
-                                    if (rota.mostrarMenu) {
+                                    if (rota.mostrarMenu && this.state.menu && this.state.menu.indexOf(rota.id) > -1) {
                                         return (
                                             <li key={index}>
                                                 <Link to={rota.caminho}>
@@ -133,34 +149,32 @@ export default class Page extends React.Component<Props, State> {
                         <Row className="page-heading">
                             <Col tamanho={"1"} className={"btn-menu"}>
                                 <button className="btn btn-primary" onClick={() => this.setState({ menuAberto: !this.state.menuAberto })}>
-                                    <i className="fa fa-list"></i>
+                                    <i className="fa fa-bars"></i>
                                 </button>
                             </Col>
 
                             <Col>
                                 <Title />
                             </Col>
+                            
+                            <Col tamanho={"4"} className={"col-lg-4 col-6 text-right user-icon"}>
+                                <Row>
+                                    <Col className={"nome-usuario d-sm-none d-none d-sm-block"}>
+                                        {this.state.nomeUsuario}
 
-                            {config.cliente !== "preves" &&
-                                <Col tamanho={"4"} className={"text-right user-icon"}>
-                                    <Row>
-                                        <Col className={"nome-usuario"}>
-                                            {this.state.nomeUsuario}
-
-                                            {this.state.admin &&
-                                                <span>
-                                                    <Link to={"/listarParticipantes"} className={"icon"} style={{ marginLeft: 10, marginRight: 10 }}>
-                                                        <i className={"fas fa-user-friends"}></i>
-                                                    </Link>
-                                                    <Link to={"/admin"} className={"icon"}>
-                                                        <i className={"fas fa-lock"}></i>
-                                                    </Link>
-                                                </span>
-                                            }
-                                        </Col>
-                                    </Row>
-                                </Col>
-                            }
+                                        {this.state.admin &&
+                                            <span>
+                                                <Link to={"/listarParticipantes"} className={"icon"} style={{ marginLeft: 10, marginRight: 10 }}>
+                                                    <i className={"fas fa-user-friends"}></i>
+                                                </Link>
+                                                <Link to={"/admin"} className={"icon"}>
+                                                    <i className={"fas fa-lock"}></i>
+                                                </Link>
+                                            </span>
+                                        }
+                                    </Col>
+                                </Row>
+                            </Col>
                         </Row>
 
                         <div className="wrapper-content">
