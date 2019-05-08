@@ -21,7 +21,9 @@ export class EmprestimoDetalhe extends React.Component<Props, State> {
         super(props);
 
         this.state = {
-            contrato: {},
+            contrato: {
+                prestacoes: []
+            },
             sqContrato: props.match.params.sqContrato
         }
     }
@@ -57,6 +59,52 @@ export class EmprestimoDetalhe extends React.Component<Props, State> {
                                 <CampoEstatico titulo="IOF" tipo={TipoCampoEstatico.dinheiro} valor={this.state.contrato.VL_IOF} />
                                 <CampoEstatico titulo="Líquido Creditado" tipo={TipoCampoEstatico.dinheiro} valor={this.state.contrato.VL_LIQUIDO} />
                                 <CampoEstatico titulo="Parcelas Pagas" valor={`${this.state.contrato.QT_PARCELA_PAGA} de ${this.state.contrato.QT_PRAZO}`} />
+                            </Box>
+                        </Col>
+                        <Col tamanho={"12"} className={"col-lg-6"}>
+                            <Box titulo={"Prestações"}>
+                                <table className={"table table-striped table-sm"}>
+                                    <thead>
+                                        <tr>
+                                            <th>Nº</th>
+                                            <th>Vencimento</th>
+                                            <th>Pagamento</th>
+                                            <th>Devido</th>
+                                            <th>Recebido</th>
+                                            <th>Saldo</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {this.state.contrato.Prestacoes.map((prestacao: any, index: number) => {
+                                            return (
+                                                <tr key={index}>
+                                                    <td>
+                                                        {prestacao.NR_PARCELA}
+                                                    </td>
+                                                    <td>
+                                                        {prestacao.DT_VENCIMENTO}
+                                                    </td>
+                                                    <td>
+                                                        {prestacao.DT_PAGAMENTO}
+                                                    </td>
+                                                    <td>
+                                                        <CampoEstatico tipo={TipoCampoEstatico.dinheiro} valor={prestacao.VL_COBRANCA} />
+                                                    </td>
+                                                    <td>
+                                                        {prestacao.VL_RECEBIDO && 
+                                                            <CampoEstatico tipo={TipoCampoEstatico.dinheiro} valor={prestacao.VL_RECEBIDO} />
+                                                        }
+                                                    </td>
+                                                    <td>
+                                                        {prestacao.VL_SALDO &&
+                                                            <CampoEstatico tipo={TipoCampoEstatico.dinheiro} valor={prestacao.VL_SALDO} />
+                                                        }
+                                                    </td>
+                                                </tr>
+                                            )
+                                        })}
+                                    </tbody>
+                                </table>
                             </Box>
                         </Col>
                     </Row>
