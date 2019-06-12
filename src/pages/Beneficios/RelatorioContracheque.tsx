@@ -5,6 +5,8 @@ import { CampoEstatico, TipoCampoEstatico } from '@intechprev/componentes-web';
 
 import { FichaFinancAssistidoService } from "@intechprev/ps-web-service";
 
+const config = require("../../config.json");
+
 const styles = {
     logo: {
         height: 100
@@ -66,7 +68,7 @@ export class RelatorioContracheque extends Component<Props, State> {
 
 	render() {
 		return (
-			<Report ref={this.report} preview={this.props.preview}>
+			<Report ref={this.report} preview={this.props.preview} downloadURL={`${config.apiUrl}/relatorios`}>
 
                 <ReportHeader height={100}>
                     <table>
