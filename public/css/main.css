@@ -9893,11 +9893,12 @@ label {
   width: 350px;
 }
 .panel-login .logo {
+  text-align: center;
   width: 100%;
   margin-bottom: 50px;
 }
 .panel-login .logo img {
-  width: 100%;
+  width: 250px;
 }
 .panel-login h4 {
   text-align: center;

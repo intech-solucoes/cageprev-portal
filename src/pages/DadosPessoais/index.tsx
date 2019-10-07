@@ -1,5 +1,5 @@
 import React from "react";
-import { DadosPessoaisService } from "@intechprev/ps-web-service";
+import { DadosPessoaisService, DependenteService } from "@intechprev/ps-web-service";
 
 import { Page } from "..";
 
@@ -11,6 +11,7 @@ interface Props {
 
 interface State {
     dados: any;
+    dependentes: Array<any>;
 }
 
 export class DadosPessoais extends React.Component<Props, State> {
@@ -21,7 +22,8 @@ export class DadosPessoais extends React.Component<Props, State> {
         super(props);
 
         this.state = {
-            dados: { }
+            dados: { },
+            dependentes: []
         };
     }
 
@@ -29,7 +31,8 @@ export class DadosPessoais extends React.Component<Props, State> {
         await this.page.current.loading(true);
 
         var dados = await DadosPessoaisService.Buscar();
-        await this.setState({ dados });
+        var dependentes = await DependenteService.Buscar();
+        await this.setState({ dados, dependentes });
 
         await this.page.current.loading(false);
     }
@@ -70,6 +73,35 @@ export class DadosPessoais extends React.Component<Props, State> {
                                 <CampoEstatico titulo="Politicamente Exposto" valor={this.state.dados.EE_POLITICAMENTE_EXPOSTO} />
                                 <CampoEstatico titulo="FATCA - US Person" valor={this.state.dados.EE_US_PERSON} />
                             </div>
+                        </Box>
+
+                        <Box titulo={"Dependentes"}>
+                            <table className={"table table-striped table-sm"}>
+                                <thead>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>Data de Nascimento</th>
+                                        <th>Grau de Parentesco</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {this.state.dependentes.map((dependente: any, index: number) => {
+                                        return (
+                                            <tr key={index}>
+                                                <td>
+                                                    {dependente.NO_PESSOA}
+                                                </td>
+                                                <td>
+                                                    {dependente.DT_NASCIMENTO}
+                                                </td>
+                                                <td>
+                                                    {dependente.DS_GRAU_PARENTESCO}
+                                                </td>
+                                            </tr>
+                                        )
+                                    })}
+                                </tbody>
+                            </table>
                         </Box>
                     </Col>
 
@@ -116,8 +148,8 @@ export class DadosPessoais extends React.Component<Props, State> {
                             </div>
 
                             <div className="form-row">
-                                <CampoEstatico titulo="Cidade" valor={this.state.dados.DS_MUNICIPIO} col="4" />
-                                <CampoEstatico titulo="UF" valor={this.state.dados.CD_UF} col="2" />
+                                <CampoEstatico titulo="Cidade" valor={this.state.dados.DS_MUNICIPIO} tamanhoCampo={"4"} />
+                                <CampoEstatico titulo="UF" valor={this.state.dados.CD_UF} tamanhoCampo="2" />
                                 <CampoEstatico titulo="CEP" valor={this.state.dados.NR_CEP} />
                             </div>
                         </Box>

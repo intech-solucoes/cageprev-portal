@@ -3,7 +3,7 @@ import packageJson from '../../../package.json';
 
 import { PageClean } from "../";
 
-import { Alert, TipoAlerta } from "@intechprev/componentes-web";
+import { Alerta, TipoAlerta } from "@intechprev/componentes-web";
 import { handleFieldChange } from "@intechprev/react-lib";
 import { UsuarioService } from "@intechprev/ps-web-service";
 import { Link } from "react-router-dom";
@@ -76,31 +76,31 @@ export default class Login extends React.Component<Props, State> {
                 </h5>
                 
                 <form>
-                <div className="form-group">
-                    <input name="cpf" id="cpf" placeholder="CPF (somente números)" type={"number"} className="form-control" maxLength={11} value={this.state.cpf} onChange={(e) => handleFieldChange(this, e)} />
-                </div>
+                    <div className="form-group">
+                        <input name="cpf" id="cpf" placeholder="CPF (somente números)" type={"number"} className="form-control" maxLength={11} value={this.state.cpf} onChange={(e) => handleFieldChange(this, e)} />
+                    </div>
 
-                <div className="form-group">
-                    <input name="senha" id="senha" placeholder="Senha" type="password" className="form-control" maxLength={64} value={this.state.senha} onChange={(e) => handleFieldChange(this, e)} />
-                </div>
+                    <div className="form-group">
+                        <input name="senha" id="senha" placeholder="Senha" type="password" className="form-control" maxLength={64} value={this.state.senha} onChange={(e) => handleFieldChange(this, e)} />
+                    </div>
 
-                <div className="form-group">
-                    <button type="submit" id="entrar" className="btn btn-block btn-primary" onClick={this.onSubmit} disabled={this.state.loading}>
-                        {!this.state.loading && 
-                            <span>Entrar</span>}
+                    <div className="form-group">
+                        <button type="submit" id="entrar" className="btn btn-block btn-primary" onClick={this.onSubmit} disabled={this.state.loading}>
+                            {!this.state.loading && 
+                                <span>Entrar</span>}
 
-                        {this.state.loading &&
-                            <i className="fas fa-spinner fa-pulse"></i>}
-                    </button>
-                </div>
+                            {this.state.loading &&
+                                <i className="fas fa-spinner fa-pulse"></i>}
+                        </button>
+                    </div>
 
-                {this.state.mensagem !== "" && <Alert tipo={TipoAlerta.info} mensagem={this.state.mensagem} />}
-                {this.state.erro !== "" && <Alert tipo={TipoAlerta.danger} mensagem={this.state.erro} />}
+                    {this.state.mensagem !== "" && <Alerta tipo={TipoAlerta.info} mensagem={this.state.mensagem} />}
+                    {this.state.erro !== "" && <Alerta tipo={TipoAlerta.danger} mensagem={this.state.erro} />}
 
-                <div className="form-group">
-                    <Link className="btn btn-link" id="esqueciSenha" to="/esqueciSenha">Esqueci Minha Senha / Primeiro Acesso</Link>
-                </div>
-            </form>
+                    <div className="form-group">
+                        <Link className="btn btn-link" id="esqueciSenha" to="/esqueciSenha">Esqueci Minha Senha / Primeiro Acesso</Link>
+                    </div>
+                </form>
                 
                 <br/>
                 <br/>

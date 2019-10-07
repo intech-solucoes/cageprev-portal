@@ -6,11 +6,13 @@ import { Row, Col, Box, CampoEstatico, TipoCampoEstatico } from "@intechprev/com
 import { Page } from "../";
 import { Link } from "react-router-dom";
 
-import { Contracheque } from "./Contracheque";
+import { Contracheques } from "./Contracheques";
+import { ContrachequeDetalhe } from "./ContrachequeDetalhe";
 import { RelatorioContracheque } from "./RelatorioContracheque";
 
 export {
-    Contracheque,
+    Contracheques,
+    ContrachequeDetalhe,
     RelatorioContracheque
 }
 
@@ -68,53 +70,7 @@ export class Beneficios extends React.Component<Props, State> {
                                 <CampoEstatico titulo={"Situação"} valor={this.state.processo.DS_MOT_SITUACAO} />
                             </div>
 
-                            <h3 className={"mt-4 mb-3"}>Demonstrativos de Pagamento</h3>
-
-                            {this.state.datasFicha.length > 0 && 
-                                <table className="table">
-
-                                    <thead>
-                                        <tr>
-                                            <th>Referência</th>
-                                            <th>Bruto</th>
-                                            <th>Descontos</th>
-                                            <th>Líquido</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-
-                                    <tbody>
-                                        {
-                                            this.state.datasFicha.map((valor, index) => {
-                                                return (
-                                                    <tr key={index} >
-                                                        <td>
-                                                            {valor.DS_COMPETENCIA}
-                                                        </td>
-                                                        <td className="text-info">
-                                                            <CampoEstatico valor={valor.VAL_BRUTO} tipo={TipoCampoEstatico.dinheiro} />
-                                                        </td>
-                                                        <td className="text-danger">
-                                                            <CampoEstatico valor={valor.VAL_DESCONTOS} tipo={TipoCampoEstatico.dinheiro} />
-                                                        </td>
-                                                        <td className="text-success">
-                                                            <CampoEstatico valor={valor.VAL_LIQUIDO} tipo={TipoCampoEstatico.dinheiro} />
-                                                        </td>
-                                                        <td>
-                                                            <Link className={"btn btn-primary btn-sm"} to={`/contracheque/${valor.SQ_PROCESSO}/${valor.DT_REFERENCIA.replace(new RegExp('/', 'g'), '.')}` }>Detalhar</Link>
-                                                        </td>
-                                                    </tr>
-                                                );
-                                            })
-                                        }
-                                    </tbody>
-
-                                </table>
-                            }
-
-                            {this.state.datasFicha.length === 0 && 
-                                <div>Nenhum contracheque disponível para este plano.</div>
-                            }
+                            <Link className="btn btn-primary btn-block mt-3" id="esqueciSenha" to="/contracheques">Demonstrativos de Pagamento - Contracheque</Link>
                         </Box>
                     </Col>
                 </Row>

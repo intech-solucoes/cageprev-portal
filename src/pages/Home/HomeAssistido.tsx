@@ -3,7 +3,7 @@ import * as _ from "lodash";
 
 import { PlanoVinculadoService, ProcessoBeneficioService, FichaFinancAssistidoService } from "@intechprev/ps-web-service";
 
-import { Row, Col, Box, CampoEstatico, TipoCampoEstatico, Alert, TipoAlerta } from "@intechprev/componentes-web";
+import { Row, Col, Box, CampoEstatico, TipoCampoEstatico, Alerta, TipoAlerta } from "@intechprev/componentes-web";
 import { HomeCard } from "./HomeCard";
 import { Page } from "../";
 
@@ -126,7 +126,7 @@ export class HomeAssistido extends React.Component<Props, State> {
                                 }
 
                                 {this.state.ficha.length == 0 &&
-                                    <Alert tipo={TipoAlerta.danger} mensagem="Não foi possível buscar sua última folha" />
+                                    <Alerta tipo={TipoAlerta.danger} mensagem="Não foi possível buscar sua última folha" />
                                 }
                             </Col>
                         </Row>

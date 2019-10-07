@@ -6,12 +6,14 @@ import {
 
     Home,
     DadosPessoais,
+    Plano, Extrato, Resgate, Portabilidade,
     TrocarSenha,
     Relacionamento,
-    Beneficios, Contracheque, RelatorioContracheque, 
-    Emprestimos, EmprestimoDetalhe
+    Beneficios, Contracheques, ContrachequeDetalhe, RelatorioContracheque, 
+    Emprestimos, EmprestimoDetalhe,
+    ListarParticipantes
 } from "./pages";
-import { Plano } from './pages/Plano';
+import { ComprovanteRendimentos } from './pages/ComprovanteRendimentos';
 
 function GetRotas() {
     const rotas = [
@@ -55,6 +57,27 @@ function GetRotas() {
             mostrarMenu: true
         },
         {
+            id: "extrato",
+            titulo: "Extrato",
+            caminho: "/extrato",
+            componente: (routeProps: RouteProps) => <Extrato {...routeProps} />,
+            mostrarMenu: false
+        },
+        {
+            id: "resgate",
+            titulo: "Simulador de Resgate",
+            caminho: "/resgate",
+            componente: (routeProps: RouteProps) => <Resgate {...routeProps} />,
+            mostrarMenu: false
+        },
+        {
+            id: "portabilidade",
+            titulo: "Simulador de Portabilidade",
+            caminho: "/portabilidade",
+            componente: (routeProps: RouteProps) => <Portabilidade {...routeProps} />,
+            mostrarMenu: false
+        },
+        {
             id: "beneficios",
             titulo: "Seus Benefícios",
             icone: "fas fa-money-bill-alt",
@@ -64,11 +87,20 @@ function GetRotas() {
             exact: true
         },
         {
-            titulo: "Contracheque",
+            titulo: "Demonstrativos de Pagamento - Contracheque",
             icone: "fas fa-closed-captioning",
-            caminho: "/contracheque/:sqProcesso/:dtReferencia",
-            caminhoLink: "/contracheque/",
-            componente: (routeProps: RouteProps) => <Contracheque {...routeProps} />,
+            caminho: "/contracheques",
+            caminhoLink: "/contracheques/",
+            componente: (routeProps: RouteProps) => <Contracheques {...routeProps} />,
+            mostrarMenu: false, 
+            exact: true
+        },
+        {
+            titulo: "Demonstrativos de Pagamento - Contracheque",
+            icone: "fas fa-closed-captioning",
+            caminho: "/contracheques/:sqProcesso/:dtReferencia",
+            caminhoLink: "/contracheques/",
+            componente: (routeProps: RouteProps) => <ContrachequeDetalhe {...routeProps} />,
             mostrarMenu: false, 
             exact: true
         },
@@ -91,6 +123,15 @@ function GetRotas() {
             exact: true
         },
         {
+            id: "comprovanteRendimentos",
+            titulo: "Comprovante de Rendimentos",
+            icone: "fas fa-money-bill-alt",
+            caminho: "/comprovanteRendimentos",
+            componente: (routeProps: RouteProps) => <ComprovanteRendimentos {...routeProps} />,
+            mostrarMenu: true,
+            exact: true
+        },
+        {
             id: "trocarSenha",
             titulo: "Trocar senha",
             icone: "fas fa-lock",
@@ -105,6 +146,14 @@ function GetRotas() {
             caminho: "/relacionamento",
             componente: (routeProps: RouteProps) => <Relacionamento {...routeProps} />,
             mostrarMenu: true
+        },
+        {
+            titulo: "Listar Participantes",
+            caminho: "/listarParticipantes",
+            componente: (routeProps: RouteProps) => <ListarParticipantes {...routeProps} />,
+            mostrarMenu: false,
+            exact: false,
+            id: "listarParticipantes"
         }
     ];
 

@@ -42,11 +42,11 @@ export default class Page extends React.Component<Props, State> {
                 var dados = await DadosPessoaisService.Buscar();
                 var nomeUsuario = dados.NO_PESSOA;
 
-                //var { data: admin } = await UsuarioService.VerificarAdmin();
+                var { data: admin } = await UsuarioService.VerificarAdmin();
 
                 await this.setState({
                     nomeUsuario,
-                    //admin
+                    admin
                 });
             } else {
                 localStorage.removeItem("token");
@@ -167,9 +167,9 @@ export default class Page extends React.Component<Props, State> {
                                                 <Link to={"/listarParticipantes"} className={"icon"} style={{ marginLeft: 10, marginRight: 10 }}>
                                                     <i className={"fas fa-user-friends"}></i>
                                                 </Link>
-                                                <Link to={"/admin"} className={"icon"}>
+                                                {/* <Link to={"/admin"} className={"icon"}>
                                                     <i className={"fas fa-lock"}></i>
-                                                </Link>
+                                                </Link> */}
                                             </span>
                                         }
                                     </Col>

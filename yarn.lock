@@ -1132,34 +1132,44 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@intechprev/componentes-web@^1.0.8":
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/@intechprev/componentes-web/-/componentes-web-1.0.8.tgz#3058e686cf38ee0bc53bcd0a0b313827efa8fd2f"
-  integrity sha512-vgat6j+hgyakF/po5PN/jkZvHOD6MqSNoHta9qwhE04+QSEdrZnWKQmJRBBZ7I8Nk7Nay4y9EbpHqZvQGm8nuA==
+"@intechprev/componentes-web@file:../_lib/componentes-web":
+  version "1.0.19"
   dependencies:
-    "@intechprev/react-lib" "^1.0.3"
+    "@intechprev/react-lib" "^1.0.6"
     "@types/classnames" "^2.2.7"
-    "@types/react" "^16.8.7"
     "@types/react-input-mask" "^2.0.1"
-    axios "^0.18.0"
     classnames "^2.2.6"
-    react "^16.8.4"
     react-input-mask "^2.0.4"
 
 "@intechprev/ps-web-service@file:../ps-web-service":
-  version "0.0.2"
+  version "0.0.4"
   dependencies:
-    "@intechprev/service" "file:../../Users/rony-/AppData/Local/Yarn/Cache/v4/npm-@intechprev-ps-web-service-0.0.2-ba10d40a-5e94-4bed-ac5f-921036578a73-1555440054311/node_modules/@intechprev/_lib/service"
+    "@intechprev/service" "2.0.0"
 
 "@intechprev/react-lib@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@intechprev/react-lib/-/react-lib-1.0.3.tgz#006894ba8aa57b1b96e06d96d9506a8a7b23e312"
   integrity sha512-kc7kn6M1LHdCcqyhfeuJTMGWicf9+QQ2gDTakI/EL+T0vmEkxjnRd9mtinr5ShJll3XdxkOh70tSNBMPuBR6gw==
 
-"@intechprev/service@^2.0.0", "@intechprev/service@file:../_lib/service":
+"@intechprev/react-lib@^1.0.6":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@intechprev/react-lib/-/react-lib-1.0.6.tgz#7fad2905dcef4319aa6827d87457643f7062dcb2"
+  integrity sha512-J8DslalIQCfILaxheZuCDgqjp+n4zBj6PgUqhac9mPR0ofxoaPfEuN9lLvMzBRSjCuMR2PBbU6VzN0E11q2tDg==
+
+"@intechprev/service@2.0.0":
   version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@intechprev/service/-/service-2.0.0.tgz#07192d9cc37c395e01d228aced942bd5c637de92"
+  integrity sha512-5C43JxesUi+dtU+xGpIQshsm2Z/3bSpKaDb3lhaaAXu5/7KTX6fO4Tl7Y0ZQZyjQIwk0mMlsk2uylhbGIm6lYg==
   dependencies:
     axios "^0.18.0"
+
+"@intechprev/service@^2.0.0":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@intechprev/service/-/service-2.0.1.tgz#3a7ebfd883fa6303a9a750d79832c4b62db4a312"
+  integrity sha512-QyEi6Oy6J0Ugv2ecL+fRaj52+nMJC8DDRZ/l7sob+uSdEAa/oMv8oFrQdx21++EVh5HYIi2guAvQjtTkINuosQ==
+  dependencies:
+    axios "^0.18.0"
+    es6-promise "^4.2.8"
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
@@ -1174,10 +1184,10 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
-"@ronymmoura/react-reports@^0.2.7":
-  version "0.2.7"
-  resolved "https://registry.yarnpkg.com/@ronymmoura/react-reports/-/react-reports-0.2.7.tgz#7f99d2acf5e3580b9c2ff2e03287bf376f14593c"
-  integrity sha512-Usatt0o4TRC09Q+en7QadlT2hDscI0rp2Fit4nkyRKmQZ/pntcPFf25VMkntGAiqlu4eohZM9KRV5Dj6xbxe4g==
+"@ronymmoura/react-reports@^0.2.9":
+  version "0.2.9"
+  resolved "https://registry.yarnpkg.com/@ronymmoura/react-reports/-/react-reports-0.2.9.tgz#efd35a140ae3fc11d56535a85f9fd3f5a7f08a02"
+  integrity sha512-PhTUDERI2VIh+UMkNHPQeuSa7N/qRE689OxreLm3ODWtuDETnI+VdiT+cekjzW/Q8+PIjFI5vreWpFW0c2hudQ==
   dependencies:
     axios "^0.18.0"
     classnames "^2.2.6"
@@ -1370,14 +1380,6 @@
   version "16.7.20"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.7.20.tgz#13ae752c012710d0fa800985ca809814b51d3b58"
   integrity sha512-Qd5RWkwl6SL7R2XzLk/cicjVQm1Mhc6HqXY5Ei4pWd1Vi8Fkbd5O0sA398x8fRSTPAuHdDYD9nrWmJMYTJI0vQ==
-  dependencies:
-    "@types/prop-types" "*"
-    csstype "^2.2.0"
-
-"@types/react@^16.8.7":
-  version "16.8.13"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.8.13.tgz#a82b15aad9ab91c40edca0d6889b7745ae24f053"
-  integrity sha512-otJ4ntMuHGrvm67CdDJMAls4WqotmAmW0g3HmWi9LCjSWXrxoXY/nHXrtmMfvPEEmGFNm6NdgMsJmnfH820Qaw==
   dependencies:
     "@types/prop-types" "*"
     csstype "^2.2.0"
@@ -3818,6 +3820,11 @@ es-to-primitive@^1.2.0:
     is-callable "^1.1.4"
     is-date-object "^1.0.1"
     is-symbol "^1.0.2"
+
+es6-promise@^4.2.8:
+  version "4.2.8"
+  resolved "https://registry.yarnpkg.com/es6-promise/-/es6-promise-4.2.8.tgz#4eb21594c972bc40553d276e510539143db53e0a"
+  integrity sha512-HJDGx5daxeIvxdBxvG2cb9g4tEvwIk3i8+nhX0yGrYmZUzbkdg8QbDevheDB8gd0//uPj4c1EQua8Q+MViT0/w==
 
 escape-html@~1.0.3:
   version "1.0.3"
@@ -6899,6 +6906,11 @@ mkdirp@0.5.1, mkdirp@0.5.x, mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkdirp@
   dependencies:
     minimist "0.0.8"
 
+moment@^2.24.0:
+  version "2.24.0"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
+  integrity sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
+
 move-concurrently@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/move-concurrently/-/move-concurrently-1.0.1.tgz#be2c005fda32e0b29af1f05d7c4b33214c701f92"
@@ -8738,7 +8750,7 @@ react-scripts@2.1.8:
   optionalDependencies:
     fsevents "1.2.4"
 
-react@^16.8.4, react@^16.8.6:
+react@^16.8.6:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react/-/react-16.8.6.tgz#ad6c3a9614fd3a4e9ef51117f54d888da01f2bbe"
   integrity sha512-pC0uMkhLaHm11ZSJULfOBqV4tIZkx87ZLvbbQYunNixAAvjnC+snJCg0XQXn9VIsttVsbZP/H/ewzgsd5fxKXw==

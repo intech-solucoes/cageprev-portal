@@ -2,8 +2,8 @@ import React from "react";
 
 import { FichaFinancAssistidoService } from "@intechprev/ps-web-service";
 
-import { Row, Col, Box, CampoEstatico, TipoCampoEstatico, Button, TipoBotao } from "@intechprev/componentes-web";
-import { Page } from "../";
+import { Row, Col, Box, CampoEstatico, TipoCampoEstatico, Botao, TipoBotao, TamanhoBotao } from "@intechprev/componentes-web";
+import { Page } from "..";
 import { RelatorioContracheque } from ".";
 
 interface Props {
@@ -16,7 +16,7 @@ interface State {
     dtReferencia: string;
 }
 
-export class Contracheque extends React.Component<Props, State> {
+export class ContrachequeDetalhe extends React.Component<Props, State> {
 
     private page = React.createRef<Page>();
     private relatorioContracheque = React.createRef<RelatorioContracheque>();
@@ -51,7 +51,7 @@ export class Contracheque extends React.Component<Props, State> {
 
     render() {
         return (
-            <Page {...this.props} ref={this.page} titulo={"Contracheque " + this.state.dtReferencia.replace(".", "/").replace(".", "/")}>
+            <Page {...this.props} ref={this.page} titulo={"Demonstrativos de Pagamento - Contracheque " + this.state.dtReferencia.replace(".", "/").replace(".", "/").substring(3)}>
                 {this.page.current &&
                     <div>
                         <Row>
@@ -139,7 +139,7 @@ export class Contracheque extends React.Component<Props, State> {
 
                                     </Row>
 
-                                    <Button titulo="Baixar" tipo={TipoBotao.primary} pequeno onClick={() => this.relatorioContracheque.current.download()} />
+                                    <Botao titulo="Baixar" tipo={TipoBotao.primary} tamanho={TamanhoBotao.pequeno} onClick={() => this.relatorioContracheque.current.download()} />
                                     <RelatorioContracheque ref={this.relatorioContracheque} preview={false} sqProcesso={this.state.sqProcesso} dtReferencia={this.state.dtReferencia} />
                                 </Box>
                             </Col>

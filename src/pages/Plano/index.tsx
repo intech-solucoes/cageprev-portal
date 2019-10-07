@@ -1,23 +1,26 @@
 import React from "react";
 import { Page } from "..";
-import { Row, Col, CampoEstatico, TipoCampoEstatico, Box, CampoTexto, Button, TipoBotao, Form } from "@intechprev/componentes-web";
+import { Row, Col, CampoEstatico, TipoCampoEstatico, Box } from "@intechprev/componentes-web";
 import { PlanoVinculadoService, FichaContribPrevidencialService, IndiceService } from "@intechprev/ps-web-service";
 
 import { HomeCard } from "../Home/HomeCard";
+import { Link } from "react-router-dom";
+
+import { Extrato } from "./Extrato";
+import { Resgate } from "./Resgate";
+import { Portabilidade } from "./Portabilidade";
+export { Extrato, Resgate, Portabilidade }
 
 interface Props { }
 
 interface State {
     plano: any;
     saldos: any;
-    dataInicial: string;
-    dataFinal: string;
     dataPosicao: string;
 }
 
 export class Plano extends React.Component<Props, State> {
     private page = React.createRef<Page>();
-    private form = React.createRef<Form>();
 
     constructor(props: Props) {
         super(props);
@@ -27,8 +30,6 @@ export class Plano extends React.Component<Props, State> {
             saldos: {
                 lista: []
             },
-            dataInicial: "",
-            dataFinal: "",
             dataPosicao: ""
         }
     }
@@ -37,16 +38,12 @@ export class Plano extends React.Component<Props, State> {
         this.page.current.loading(true);
 
         var plano = await PlanoVinculadoService.Buscar();
-
         var saldos = await FichaContribPrevidencialService.BuscarSaldos(plano.SQ_PLANO_PREVIDENCIAL);
-        var datasExtrato = await FichaContribPrevidencialService.BuscarDatasExtratoPorPlano(plano.SQ_PLANO_PREVIDENCIAL);
         var indice = await IndiceService.BuscarUltimoPorCdIndice("QUOTA");
 
         await this.setState({ 
             plano, 
             saldos,
-            dataInicial: datasExtrato.DataInicial,
-            dataFinal: datasExtrato.DataFinal,
             dataPosicao: indice.DT_INIC_VALIDADE.substring(3)
          });
 
@@ -114,97 +111,26 @@ export class Plano extends React.Component<Props, State> {
                                 </Box>
                             </Col>
                         </Row>
-
+                        
                         <Row>
-                            <Col>
-                                <Box titulo={"Extrato de Contribuições"}>
-                                    <Form ref={this.form}>
-                                        <Row>
-                                            <Col tamanho={"lg-3"}>
-                                                <CampoTexto contexto={this} nome={"dataInicial"} valor={this.state.dataInicial} tamanhoLabel={"lg-5"}
-                                                            label={"Data Inicial"} mascara={"99/99/9999"} />
-                                            </Col>
-                                            <Col tamanho={"lg-3"}>
-                                                <CampoTexto contexto={this} nome={"dataFinal"} valor={this.state.dataFinal} tamanhoLabel={"lg-5"}
-                                                            label={"Data Final"} mascara={"99/99/9999"} />
-                                            </Col>
-                                            <Col>
-                                                <Button titulo={"Gerar"} tipo={TipoBotao.primary} submit onClick={this.gerarExtrato} />
-                                            </Col>
-                                        </Row>
-                                    </Form>
+                            <Col tamanho={"sm-12"} className={"col-md-4"}>
+                                <Box titulo={"Extrato"}>
+                                    <h5>Visualize e baixe o seu extrato de contribuições atualizado</h5>
+                                    <Link className="btn btn-primary btn-block mt-3" id="esqueciSenha" to="/extrato">Ir para Extrato</Link>
                                 </Box>
                             </Col>
-                        </Row>
-
-                        <Row>
-                            <Col>
-                                <Box titulo={"Simulador de Resgate"} label={`Posição de ${this.state.dataPosicao}`}>
-                                    
-                                    <p>
-                                        Art. 33. Excetuado o caso de falecimento, o PARTICIPANTE que ainda não estiver em gozo de aposentadoria-programada, inclusive sob a forma 
-                                        antecipada, ou de aposentadoria por invalidez, e que tiver cancelada a sua inscricão no PCV, poderá optar pelo recebimento, a título de resgate-de-contribuições,
-                                        do montante em Reais equivalente a cem por cento (100%) do saldo, em quotas, de suas contribuições-laborais vertidas para a sua conta-de-participante.
-                                    </p>
-
-                                    <table className={"table table-striped table-sm"}>
-                                        <thead>
-                                            <tr>
-                                                <th></th>
-                                                <th className={"text-right"}>Saldo Atualizado</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>VALOR BRUTO</td>
-                                                <td className={"text-right"}>
-                                                    <CampoEstatico valor={this.state.saldos.bruto} tipo={TipoCampoEstatico.dinheiro} />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>DESCONTO DE IRRF</td>
-                                                <td className={"text-right"}>
-                                                    <CampoEstatico valor={this.state.saldos.IRRF} tipo={TipoCampoEstatico.dinheiro} />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th>VALOR LÍQUIDO</th>
-                                                <th className={"text-right"}>
-                                                    <CampoEstatico valor={this.state.saldos.liquido} tipo={TipoCampoEstatico.dinheiro} />
-                                                </th>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
+                            
+                            <Col tamanho={"sm-12"} className={"col-md-4"}>
+                                <Box titulo={"Simulador de Resgate"}>
+                                    <h5>Simule o valor atualizado do seu resgate de contribuições</h5>
+                                    <Link className="btn btn-primary btn-block mt-3" id="esqueciSenha" to="/resgate">Ir para Simulador de Resgate</Link>
                                 </Box>
                             </Col>
-
-                            <Col>
-                                <Box titulo={"Simulador de Portabilidade"} label={`Posição de ${this.state.dataPosicao}`}>
-                                    
-                                    <p>
-                                        Art. 34. O PARTICIPANTE que optar pelo instituto da portabilidade poderá transferir os recursos financeiros correspondentes ao seu direito-acumulado
-                                        para outro plano de benefícios de caráter previdenciário operado por entidade de previdência complementar ou sociedade seguradora autorizada
-                                        a operar essa modalidade de plano.
-                                    </p>
-
-                                    <table className={"table table-striped table-sm"}>
-                                        <thead>
-                                            <tr>
-                                                <th></th>
-                                                <th className={"text-right"}>Saldo Atualizado</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th>VALOR A SER PORTADO</th>
-                                                <th className={"text-right"}>
-                                                    <CampoEstatico valor={this.state.saldos.lista[2].VL_ATUALIZADO} tipo={TipoCampoEstatico.dinheiro} />
-                                                </th>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
+                            
+                            <Col tamanho={"sm-12"} className={"col-md-4"}>
+                                <Box titulo={"Simulador de Portabilidade"}>
+                                    <h5>Simule o valor atualizado do seu saldo para portabilidade</h5>
+                                    <Link className="btn btn-primary btn-block mt-3" id="esqueciSenha" to="/portabilidade">Ir para Simulador de Portabilidade</Link>
                                 </Box>
                             </Col>
                         </Row>

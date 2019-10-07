@@ -74,7 +74,7 @@ export class HomeAtivo extends React.Component<Props, State> {
                             </Col>
                         </Row>
 
-                        <Row className={"mt-4"}>
+                        {/* <Row className={"mt-4"}>
                             <Col>
                                 <Box titulo={"Sua Última Contribuição"} label={this.state.salario.DT_REFERENCIA}>
                                     
@@ -95,7 +95,7 @@ export class HomeAtivo extends React.Component<Props, State> {
 
                                 </Box>
                             </Col>
-                        </Row>
+                        </Row> */}
                         
                         <Row>
                             <Col>
