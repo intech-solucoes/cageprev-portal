@@ -39,7 +39,6 @@ export default class ContratoEmprestimoEntidade {
 	public SEQ_CONTRATO?: number;
 	public USR_CODIGO?: number;
 	public DT_REQUERIMENTO?: Date;
-	public SQ_MIGRACAO?: number;
 	public NO_PESSOA: string;
 	public NR_CPF: string;
 	public NO_EMPRESA: string;
@@ -50,4 +49,5 @@ export default class ContratoEmprestimoEntidade {
 	public DS_MOT_QUITACAO: string;
 	public VL_IOF?: number;
 	public Prestacoes: Array<HistSaldoContratoEntidade>;
+	public DS_IR_TIPO_TABELA: string;
 }

@@ -1133,7 +1133,7 @@
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
 "@intechprev/componentes-web@file:../_lib/componentes-web":
-  version "1.0.19"
+  version "1.3.4"
   dependencies:
     "@intechprev/react-lib" "^1.0.6"
     "@types/classnames" "^2.2.7"
@@ -1164,9 +1164,9 @@
     axios "^0.18.0"
 
 "@intechprev/service@^2.0.0":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@intechprev/service/-/service-2.0.1.tgz#3a7ebfd883fa6303a9a750d79832c4b62db4a312"
-  integrity sha512-QyEi6Oy6J0Ugv2ecL+fRaj52+nMJC8DDRZ/l7sob+uSdEAa/oMv8oFrQdx21++EVh5HYIi2guAvQjtTkINuosQ==
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@intechprev/service/-/service-2.1.0.tgz#6c6fba97cf472133d03f2a03c7e775f5cd2114d0"
+  integrity sha512-JdVLFE3TmITZPYF092QH0vEZUxsHJn5IeozTYUSCj+7btqIqcAW4iFMNy+zAUwh7fUDNCgxiTfVgoqyfQj/wtw==
   dependencies:
     axios "^0.18.0"
     es6-promise "^4.2.8"

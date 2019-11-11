@@ -1,5 +1,6 @@
 import React from "react";
 import packageJson from '../../../package.json';
+import config from "../../config.json";
 
 import { PageClean } from "../";
 
@@ -45,8 +46,8 @@ export default class Login extends React.Component<Props, State> {
         try {
             var login = await UsuarioService.Login(this.state.cpf, this.state.senha);
             
-            await localStorage.setItem("token", login.AccessToken);
-            await localStorage.setItem("token-admin", login.AccessToken);
+            await localStorage.setItem(`@${config.appName}:token`, login.AccessToken);
+            await localStorage.setItem(`@${config.appName}:token-admin`, login.AccessToken);
             await localStorage.setItem("pensionista", login.pensionista.toString());
             
             document.location.href = ".";

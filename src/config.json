@@ -1,3 +1,4 @@
 {
-  "apiUrl": "http://localhost/CageprevAPI/api"
+  "apiUrl": "http://localhost/CageprevAPI/api",
+  "appName": "Cageprev"
 }

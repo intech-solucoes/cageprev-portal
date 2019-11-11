@@ -6,6 +6,7 @@ import { DadosPessoaisService, UsuarioService } from "@intechprev/ps-web-service
 import { Row, Col } from "@intechprev/componentes-web";
 
 import Rotas from "../Rotas";
+import config from "../config.json";
 
 interface Props {
     history?: any;
@@ -36,7 +37,7 @@ export default class Page extends React.Component<Props, State> {
 
     componentWillMount = async () => {
         try {
-            var token = await localStorage.getItem("token");
+            var token = await localStorage.getItem(`@${config.appName}:token`);
 
             if (token) {
                 var dados = await DadosPessoaisService.Buscar();
@@ -49,14 +50,14 @@ export default class Page extends React.Component<Props, State> {
                     admin
                 });
             } else {
-                localStorage.removeItem("token");
-                localStorage.removeItem("token-admin");
+                localStorage.removeItem(`@${config.appName}:token`);
+                localStorage.removeItem(`@${config.appName}:token-admin`);
                 this.props.history.push("/login");
             }
         } catch (err) {
             if (err.message.indexOf("401") > -1) {
-                localStorage.removeItem("token");
-                localStorage.removeItem("token-admin");
+                localStorage.removeItem(`@${config.appName}:token`);
+                localStorage.removeItem(`@${config.appName}:token-admin`);
                 this.props.history.push("/login");
             } else {
                 alert("Ops! Ocorreu um erro ao processar sua requisição.");

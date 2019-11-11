@@ -20,4 +20,9 @@ export default class HistSaldoContratoEntidade {
 	public CODFORMA: string;
 	public VL_JUROS?: number;
 	public VL_SALDO_ANTERIOR?: number;
+	public TX_ADM?: number;
+	public TX_AMORTIZACAO?: number;
+	public TX_FUNDO_GARANTIDOR?: number;
+	public TX_MORA?: number;
+	public DS_LANCAMENTO: string;
 }

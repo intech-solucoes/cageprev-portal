@@ -1,6 +1,6 @@
 import React from "react";
 import { ContratoEmprestimoService } from "@intechprev/ps-web-service";
-import { Box, Row, Col, CampoEstatico, TipoCampoEstatico } from "@intechprev/componentes-web";
+import { Box, Row, Col, CampoEstatico, TipoCampoEstatico, Botao, TipoBotao } from "@intechprev/componentes-web";
 
 import { Page } from "..";
 
@@ -32,12 +32,36 @@ export class EmprestimoDetalhe extends React.Component<Props, State> {
         this.page.current.loading(true);
 
         var contrato = await ContratoEmprestimoService.BuscarPorSqContrato(this.state.sqContrato);
-
+        
         await this.setState({
             contrato
         });
         
         this.page.current.loading(false);
+    }
+
+    gerarExtrato = async () => {
+        var relatorio = await ContratoEmprestimoService.GerarExtrato(this.state.sqContrato);
+            
+        if (navigator.msSaveBlob) { // IE10+ : (has Blob, but not a[download] or URL)
+            return navigator.msSaveBlob(new Blob([relatorio]), "Extrato de Emprestimo.pdf");
+        } else {
+
+            const blobURL = window.URL.createObjectURL(new Blob([relatorio]));
+            const tempLink = document.createElement('a');
+            tempLink.style.display = 'none';
+            tempLink.href = blobURL;
+            tempLink.setAttribute('download', "Extrato de Emprestimo.pdf");
+
+            if (typeof tempLink.download === 'undefined') {
+                tempLink.setAttribute('target', '_blank');
+            }
+
+            document.body.appendChild(tempLink);
+            tempLink.click();
+            document.body.removeChild(tempLink);
+            window.URL.revokeObjectURL(blobURL);
+        }
     }
 
     render() {
@@ -60,6 +84,7 @@ export class EmprestimoDetalhe extends React.Component<Props, State> {
                                 <CampoEstatico titulo="Líquido Creditado" tipo={TipoCampoEstatico.dinheiro} valor={this.state.contrato.VL_LIQUIDO} />
                                 <CampoEstatico titulo="Parcelas Pagas" valor={`${this.state.contrato.QT_PARCELA_PAGA} de ${this.state.contrato.QT_PRAZO}`} />
                             </Box>
+                            <Botao titulo={"Gerar Extrato"} tipo={TipoBotao.primary} submit onClick={this.gerarExtrato} usaLoading />
                         </Col>
                         <Col tamanho={"12"} className={"col-lg-6"}>
                             <Box titulo={"Prestações"}>
