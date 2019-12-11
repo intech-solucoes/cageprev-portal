@@ -35,4 +35,5 @@ export default class PessoaFisicaEntidade {
 	public NR_PAIS_NACIONALIDADE: string;
 	public EE_US_PERSON: string;
 	public NO_PESSOA: string;
+	public NR_REGISTRO: string;
 }
