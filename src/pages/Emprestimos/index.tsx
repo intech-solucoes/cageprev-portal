@@ -1,14 +1,10 @@
 import React from "react";
-import Page from "../Page";
 import { Box, TipoCampoEstatico, CampoEstatico } from "@intechprev/componentes-web";
 import { ContratoEmprestimoService } from "@intechprev/ps-web-service";
 import { Link } from "react-router-dom";
 
-import { EmprestimoDetalhe } from "./detalhes";
+import { Page } from "..";
 import classNames from "classnames";
-export {
-    EmprestimoDetalhe
-}
 
 interface Props { }
 

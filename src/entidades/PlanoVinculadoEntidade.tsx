@@ -25,6 +25,7 @@ export default class PlanoVinculadoEntidade {
 	public DT_OBITO?: Date;
 	public VL_JOIA?: number;
 	public DT_REINTEGRACAO?: Date;
+	public TXT_OBSERVACAO: string;
 	public DS_PLANO_PREVIDENCIAL: string;
 	public DS_SIT_PLANO: string;
 	public DS_SIT_INSCRICAO: string;

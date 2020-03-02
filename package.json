@@ -1,6 +1,6 @@
 {
     "name": "portal-cageprev",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "private": true,
     "homepage": ".",
     "browserslist": [
@@ -13,7 +13,7 @@
         "@intechprev/componentes-web": "file:../_lib/componentes-web",
         "@intechprev/ps-web-service": "file:../ps-web-service",
         "@intechprev/react-lib": "^1.0.3",
-        "@intechprev/service": "^2.0.0",
+        "@intechprev/service": "^2.3.0",
         "@ronymmoura/react-reports": "^0.2.9",
         "@types/jest": "23.3.13",
         "@types/lodash": "^4.14.123",

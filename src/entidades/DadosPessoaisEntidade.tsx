@@ -26,6 +26,8 @@ export default class DadosPessoaisEntidade {
 	public SQ_CATEGORIA_TRABALHADOR?: number;
 	public IR_TIPO_CONTRATO?: number;
 	public IR_EXPOSICAO_AGENTE_NOCIVO?: number;
+	public SQ_MIGRACAO?: number;
+	public TXT_OBSERVACAO: string;
 	public NO_PESSOA: string;
 	public IR_SEXO: string;
 	public DS_SEXO: string;

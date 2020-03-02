@@ -9,11 +9,7 @@ import { handleFieldChange } from "@intechprev/react-lib";
 import { UsuarioService } from "@intechprev/ps-web-service";
 import { Link } from "react-router-dom";
 
-import EsqueciSenha from "./EsqueciSenha";
-
-export {
-    EsqueciSenha
-}
+import { Session } from "@intechprev/service";
 
 interface Props {
 
@@ -27,7 +23,7 @@ interface State {
     erro: string;
 }
 
-export default class Login extends React.Component<Props, State> {
+export class Login extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);
 
@@ -46,8 +42,7 @@ export default class Login extends React.Component<Props, State> {
         try {
             var login = await UsuarioService.Login(this.state.cpf, this.state.senha);
             
-            await localStorage.setItem(`@${config.appName}:token`, login.AccessToken);
-            await localStorage.setItem(`@${config.appName}:token-admin`, login.AccessToken);
+            await Session.setToken(login.AccessToken);
             await localStorage.setItem("pensionista", login.pensionista.toString());
             
             document.location.href = ".";

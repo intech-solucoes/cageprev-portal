@@ -41,7 +41,7 @@ export class EmprestimoDetalhe extends React.Component<Props, State> {
     }
 
     gerarExtrato = async () => {
-        var relatorio = await ContratoEmprestimoService.GerarExtrato(this.state.sqContrato);
+        var relatorio = await ContratoEmprestimoService.GerarRelatorio(this.state.sqContrato);
             
         if (navigator.msSaveBlob) { // IE10+ : (has Blob, but not a[download] or URL)
             return navigator.msSaveBlob(new Blob([relatorio]), "Extrato de Emprestimo.pdf");

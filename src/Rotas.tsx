@@ -11,9 +11,9 @@ import {
     Relacionamento,
     Beneficios, Contracheques, ContrachequeDetalhe, RelatorioContracheque, 
     Emprestimos, EmprestimoDetalhe,
+    ComprovanteRendimentos,
     ListarParticipantes
 } from "./pages";
-import { ComprovanteRendimentos } from './pages/ComprovanteRendimentos';
 
 function GetRotas() {
     const rotas = [

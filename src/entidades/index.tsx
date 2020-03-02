@@ -7,9 +7,11 @@ import DependenteEntidade from "./DependenteEntidade";
 import DocumentoEntidade from "./DocumentoEntidade";
 import DocumentoPastaEntidade from "./DocumentoPastaEntidade";
 import DocumentoPlanoEntidade from "./DocumentoPlanoEntidade";
+import EnderecoPessoaEntidade from "./EnderecoPessoaEntidade";
 import FichaContribPrevidencialEntidade from "./FichaContribPrevidencialEntidade";
 import FichaFinancAssistidoEntidade from "./FichaFinancAssistidoEntidade";
 import FichaSalarioContribuicaoEntidade from "./FichaSalarioContribuicaoEntidade";
+import HistDependentePrevidencialEntidade from "./HistDependentePrevidencialEntidade";
 import HistEncargoContratoEntidade from "./HistEncargoContratoEntidade";
 import HistSaldoContratoEntidade from "./HistSaldoContratoEntidade";
 import IndiceEntidade from "./IndiceEntidade";
@@ -20,6 +22,7 @@ import PessoaFisicaEntidade from "./PessoaFisicaEntidade";
 import PlanoPrevidencialEntidade from "./PlanoPrevidencialEntidade";
 import PlanoVinculadoEntidade from "./PlanoVinculadoEntidade";
 import ProcessoBeneficioEntidade from "./ProcessoBeneficioEntidade";
+import RecebedorBeneficioEntidade from "./RecebedorBeneficioEntidade";
 import UsuarioEntidade from "./UsuarioEntidade";
 import UsuarioGrupoEntidade from "./UsuarioGrupoEntidade";
 
@@ -33,9 +36,11 @@ export {
 	DocumentoEntidade,
 	DocumentoPastaEntidade,
 	DocumentoPlanoEntidade,
+	EnderecoPessoaEntidade,
 	FichaContribPrevidencialEntidade,
 	FichaFinancAssistidoEntidade,
 	FichaSalarioContribuicaoEntidade,
+	HistDependentePrevidencialEntidade,
 	HistEncargoContratoEntidade,
 	HistSaldoContratoEntidade,
 	IndiceEntidade,
@@ -46,6 +51,7 @@ export {
 	PlanoPrevidencialEntidade,
 	PlanoVinculadoEntidade,
 	ProcessoBeneficioEntidade,
+	RecebedorBeneficioEntidade,
 	UsuarioEntidade,
 	UsuarioGrupoEntidade,
 }

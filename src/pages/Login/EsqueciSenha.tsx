@@ -18,7 +18,7 @@ interface State {
     erro: string;
 }
 
-export default class EsqueciSenha extends React.Component<Props, State> {
+export class EsqueciSenha extends React.Component<Props, State> {
 
     private alert = React.createRef<Alerta>();
     private form = React.createRef<Form>();

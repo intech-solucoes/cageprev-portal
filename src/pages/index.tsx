@@ -1,28 +1,16 @@
-import PageClean from "./PageClean";
-import Page from "./Page";
+export { PageClean } from "./PageClean";
+export { Page } from "./Page";
 
-import Login, { EsqueciSenha } from "./Login";
+export { Login } from "./Login";
+export { EsqueciSenha } from "./Login/EsqueciSenha";
 
-import { Home } from "./Home";
-import { DadosPessoais } from "./DadosPessoais";
-import { Plano, Extrato, Resgate, Portabilidade } from "./Plano";
-import { TrocarSenha } from "./TrocarSenha";
-import { Relacionamento } from "./Relacionamento";
-import { Beneficios, Contracheques, ContrachequeDetalhe, RelatorioContracheque } from "./Beneficios";
-import { Emprestimos, EmprestimoDetalhe } from "./Emprestimos";
-import { ListarParticipantes } from "./ListarParticipantes";
-
-export {
-    PageClean, Page,
-
-    Login, EsqueciSenha,
-
-    Home,
-    DadosPessoais,
-    Plano, Extrato, Resgate, Portabilidade,
-    TrocarSenha,
-    Relacionamento,
-    Beneficios, Contracheques, ContrachequeDetalhe, RelatorioContracheque,
-    Emprestimos, EmprestimoDetalhe,
-    ListarParticipantes
-}
+export { Home } from "./Home";
+export { DadosPessoais } from "./DadosPessoais";
+export { Plano, Extrato, Resgate, Portabilidade } from "./Plano";
+export { TrocarSenha } from "./TrocarSenha";
+export { Relacionamento } from "./Relacionamento";
+export { Beneficios, Contracheques, ContrachequeDetalhe, RelatorioContracheque } from "./Beneficios";
+export { Emprestimos } from "./Emprestimos";
+export { EmprestimoDetalhe } from "./Emprestimos/detalhes";
+export { ListarParticipantes } from "./ListarParticipantes";
+export { ComprovanteRendimentos } from "./ComprovanteRendimentos";

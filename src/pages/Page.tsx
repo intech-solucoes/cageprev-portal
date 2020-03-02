@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { Session } from "@intechprev/service";
 import { DadosPessoaisService, UsuarioService } from "@intechprev/ps-web-service";
-
 import { Row, Col } from "@intechprev/componentes-web";
 
 import Rotas from "../Rotas";
@@ -21,7 +20,7 @@ interface State {
     menuAberto: boolean;
 }
 
-export default class Page extends React.Component<Props, State> {
+export class Page extends React.Component<Props, State> {
 
     constructor(props: Props) {
         super(props);
@@ -50,14 +49,12 @@ export default class Page extends React.Component<Props, State> {
                     admin
                 });
             } else {
-                localStorage.removeItem(`@${config.appName}:token`);
-                localStorage.removeItem(`@${config.appName}:token-admin`);
+                await Session.clear();
                 this.props.history.push("/login");
             }
         } catch (err) {
             if (err.message.indexOf("401") > -1) {
-                localStorage.removeItem(`@${config.appName}:token`);
-                localStorage.removeItem(`@${config.appName}:token-admin`);
+                await Session.clear();
                 this.props.history.push("/login");
             } else {
                 alert("Ops! Ocorreu um erro ao processar sua requisição.");
@@ -85,9 +82,8 @@ export default class Page extends React.Component<Props, State> {
         });
     }
 
-    logout() {
-        localStorage.removeItem("token");
-        localStorage.removeItem("token-admin");
+    logout = async () => {
+        await Session.clear();
         this.props.history.push("login");
     }
 
